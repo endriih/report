@@ -23,9 +23,9 @@ p {
     font-size: 30px;
 }
 
-.home {
+/* .home {
     overflow-y: hidden;
-  }
+  } */
 
 nav {
     padding: 19px;
@@ -175,4 +175,24 @@ nav a:hover {
 
 .fox-c h1 {
     margin-bottom: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f2f2f2; /* Set the background color of your footer */
+    padding: 5px; /* Set the padding of your footer */
+}
+
+footer p {
+    font-size: 12px;
+}
+
+header {
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }

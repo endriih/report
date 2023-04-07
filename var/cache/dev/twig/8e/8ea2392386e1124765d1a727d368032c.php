@@ -66,21 +66,43 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         // line 16
         echo "    </head>
     <body>
+        <header style=\"background-image: url(";
+        // line 18
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/animeclouds.jpg"), "html", null, true);
+        echo "); background-repeat: no-repeat; background-size: cover;\">
+        </header> 
         <nav>
             <h1>endri<h1>
             <div class=\"links\">
-                <a href=\"/\">Home</a>
-                <a href=\"/about\">About</a>
-                <a href=\"/report\">Report</a>
-                <a href=\"/lucky\">Lucky</a>
-                <a href=\"/api/quote\">Quote</a>
+                <a href=\"";
+        // line 23
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\">Home</a>
+                <a href=\"";
+        // line 24
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("about");
+        echo "\">About</a>
+                <a href=\"";
+        // line 25
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("report");
+        echo "\">Report</a>
+                <a href=\"";
+        // line 26
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("lucky");
+        echo "\">Lucky</a>
+                <a href=\"";
+        // line 27
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("quote");
+        echo "\">Quote</a>
             </div>
         </nav>
         ";
-        // line 28
+        // line 30
         $this->displayBlock('body', $context, $blocks);
-        // line 29
-        echo "    </body>
+        // line 31
+        echo "
+        <footer><p>Denna sidan är Copyright © av mig.</p></footer>
+    </body>
 </html>
 ";
         
@@ -156,7 +178,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     }
 
-    // line 28
+    // line 30
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -179,9 +201,14 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  160 => 28,  147 => 14,  137 => 13,  124 => 10,  114 => 9,  95 => 5,  83 => 29,  81 => 28,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
+        return array (  182 => 30,  169 => 14,  159 => 13,  146 => 10,  136 => 9,  117 => 5,  103 => 31,  101 => 30,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  71 => 18,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -203,17 +230,21 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         {% endblock %}
     </head>
     <body>
+        <header style=\"background-image: url({{ asset('img/animeclouds.jpg') }}); background-repeat: no-repeat; background-size: cover;\">
+        </header> 
         <nav>
             <h1>endri<h1>
             <div class=\"links\">
-                <a href=\"/\">Home</a>
-                <a href=\"/about\">About</a>
-                <a href=\"/report\">Report</a>
-                <a href=\"/lucky\">Lucky</a>
-                <a href=\"/api/quote\">Quote</a>
+                <a href=\"{{ path('home') }}\">Home</a>
+                <a href=\"{{ path('about') }}\">About</a>
+                <a href=\"{{ path('report') }}\">Report</a>
+                <a href=\"{{ path('lucky') }}\">Lucky</a>
+                <a href=\"{{ path('quote') }}\">Quote</a>
             </div>
         </nav>
         {% block body %}{% endblock %}
+
+        <footer><p>Denna sidan är Copyright © av mig.</p></footer>
     </body>
 </html>
 ", "base.html.twig", "/home/endri/dbwebb-kurser/mvc/me/report/templates/base.html.twig");

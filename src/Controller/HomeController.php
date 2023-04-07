@@ -10,28 +10,26 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class HomeController extends AbstractController
 {
-    #[Route('/')]
+    #[Route('/', name: 'home')]
     public function number(): Response
     {
         return $this->render('home.html.twig');
     }
 
-    #[Route('/about')]
+    #[Route('/about', name: 'about')]
     public function about(): Response
     {
-        $number = random_int(0, 100);
-
         return $this->render('about.html.twig');
     }
 
     
-    #[Route('/report')]
+    #[Route('/report', name: 'report')]
     public function report(): Response
     {
         return $this->render('report.html.twig');
     }
 
-    #[Route('/lucky')]
+    #[Route('/lucky', name: 'lucky')]
     public function fox(HttpClientInterface $httpClient): Response
     {
         $response = $httpClient->request('GET', 'https://randomfox.ca/floof/');
@@ -44,7 +42,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/api/quote')]
+    #[Route('/api/quote', name: 'quote')]
     public function quote(): JsonResponse
     {
         $quotes = [

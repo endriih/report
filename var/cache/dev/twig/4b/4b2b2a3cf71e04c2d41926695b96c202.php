@@ -70,7 +70,10 @@ class __TwigTemplate_14b10c504a0f4034cda45253969a1961 extends Template
         <div class=\"hero-content\">
             <h1>Hello Visitor,<br>I'm Endri <span style=\"color: orange;\">Haziri</span></h1>
             <p>Programming student.</p>
-            <a href=\"/about\">About course</a>
+            <a href=\"";
+        // line 9
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("about");
+        echo "\">About course</a>
         </div>
         <img src=\"";
         // line 11
@@ -99,7 +102,7 @@ class __TwigTemplate_14b10c504a0f4034cda45253969a1961 extends Template
 
     public function getDebugInfo()
     {
-        return array (  77 => 11,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  80 => 11,  75 => 9,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -112,7 +115,7 @@ class __TwigTemplate_14b10c504a0f4034cda45253969a1961 extends Template
         <div class=\"hero-content\">
             <h1>Hello Visitor,<br>I'm Endri <span style=\"color: orange;\">Haziri</span></h1>
             <p>Programming student.</p>
-            <a href=\"/about\">About course</a>
+            <a href=\"{{ path('about') }}\">About course</a>
         </div>
         <img src=\"{{ asset('img/chibibibi.png') }}\" alt=\"\">
     </div>

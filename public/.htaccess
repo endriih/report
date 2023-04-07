@@ -13,8 +13,13 @@ RewriteRule (.*) - [NC,L]
 
 # Rewrite 1 - For request via www.student.bth.se
 RewriteCond %{HTTP_HOST} ^www\.student\.bth\.se$ [NC]
-RewriteRule (.*) /~22enha/dbwebb-kurser/mvc/me/report/public/index.php/$1 [NC,L]
+RewriteRule (.*) /~enha22/dbwebb-kurser/mvc/me/report/public/index.php/$1 [NC,L]
 
 # Rewrite 2 - For other requests
 RewriteCond %{HTTP_HOST} !^www\.student\.bth\.se$ [NC]
 RewriteRule (.*) index.php/$1 [NC,L]
+
+
+# # Rewrite 1 - For request via www.student.bth.se
+# RewriteCond %{HTTP_HOST} ^www\.student\.bth\.se$ [NC]
+# RewriteRule (.*) /~juli22/dbwebb-kurser/mvc/me/report/public/index.php/$1 [NC,L]

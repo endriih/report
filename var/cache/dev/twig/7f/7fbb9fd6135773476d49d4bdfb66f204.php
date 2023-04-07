@@ -69,7 +69,7 @@ class __TwigTemplate_0b553117ac9abc5431418232ba9fa3cf extends Template
     <div class=\"about\">
         <div class=\"about-content\">
             <h1>Kursen MVC</h1>
-            <p>Kursen MVC handlar om objektorienterad programmering med PHP. I kursen arbetar vi med Symfony, ett webbaserat ramverk. Kursens <a href=\"https://github.com/dbwebb-se/mvc/\">Repo</a> och min <a href=\"\">Github</a>.</p>
+            <p>Kursen MVC handlar om objektorienterad programmering med PHP. I kursen arbetar vi med Symfony, ett webbaserat ramverk. Kursens <a href=\"https://github.com/dbwebb-se/mvc/\">Repo</a> och min <a href=\"https://github.com/endriih/report\">Github</a>.</p>
         </div>
         <img src=\"";
         // line 9
@@ -109,7 +109,7 @@ class __TwigTemplate_0b553117ac9abc5431418232ba9fa3cf extends Template
     <div class=\"about\">
         <div class=\"about-content\">
             <h1>Kursen MVC</h1>
-            <p>Kursen MVC handlar om objektorienterad programmering med PHP. I kursen arbetar vi med Symfony, ett webbaserat ramverk. Kursens <a href=\"https://github.com/dbwebb-se/mvc/\">Repo</a> och min <a href=\"\">Github</a>.</p>
+            <p>Kursen MVC handlar om objektorienterad programmering med PHP. I kursen arbetar vi med Symfony, ett webbaserat ramverk. Kursens <a href=\"https://github.com/dbwebb-se/mvc/\">Repo</a> och min <a href=\"https://github.com/endriih/report\">Github</a>.</p>
         </div>
         <img src=\"{{ asset('img/phpsymf.png') }}\" alt=\"\">
     </div>

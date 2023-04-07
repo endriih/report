@@ -3395,6 +3395,6 @@ body.outlook p {
         min-width: 0;
     }
 }
-", "@email/zurb_2/main.css", "/home/endri/dbwebb-kurser/mvc/me/report/symfony/app/vendor/symfony/twig-bridge/Resources/views/Email/zurb_2/main.css");
+", "@email/zurb_2/main.css", "/home/endri/dbwebb-kurser/mvc/me/report/vendor/symfony/twig-bridge/Resources/views/Email/zurb_2/main.css");
     }
 }

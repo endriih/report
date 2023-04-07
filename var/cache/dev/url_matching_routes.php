@@ -14,11 +14,11 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/' => [[['_route' => 'app_home_number', '_controller' => 'App\\Controller\\HomeController::number'], null, null, null, false, false, null]],
-        '/about' => [[['_route' => 'app_home_about', '_controller' => 'App\\Controller\\HomeController::about'], null, null, null, false, false, null]],
-        '/report' => [[['_route' => 'app_home_report', '_controller' => 'App\\Controller\\HomeController::report'], null, null, null, false, false, null]],
-        '/lucky' => [[['_route' => 'app_home_fox', '_controller' => 'App\\Controller\\HomeController::fox'], null, null, null, false, false, null]],
-        '/api/quote' => [[['_route' => 'app_home_quote', '_controller' => 'App\\Controller\\HomeController::quote'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::number'], null, null, null, false, false, null]],
+        '/about' => [[['_route' => 'about', '_controller' => 'App\\Controller\\HomeController::about'], null, null, null, false, false, null]],
+        '/report' => [[['_route' => 'report', '_controller' => 'App\\Controller\\HomeController::report'], null, null, null, false, false, null]],
+        '/lucky' => [[['_route' => 'lucky', '_controller' => 'App\\Controller\\HomeController::fox'], null, null, null, false, false, null]],
+        '/api/quote' => [[['_route' => 'quote', '_controller' => 'App\\Controller\\HomeController::quote'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
