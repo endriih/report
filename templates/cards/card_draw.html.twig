@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{% include 'cards/card_nav.html.twig' %}
+    <div class="cards">
+    {% if remainingCards > 0 %}
+        <h1>Card Drawn:</h1>
+        <img src="{{ asset('img/cards/' ~ cardGraphic) }}" alt="">
+        <p>Remaining Cards in Deck: {{ remainingCards }}</p>
+    {% else %}
+        <p>No cards left. Please refresh the deck.</p>
+    {% endif %}
+    </div>
+{% endblock %}

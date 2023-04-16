@@ -22,7 +22,7 @@ class HomeController extends AbstractController
         return $this->render('about.html.twig');
     }
 
-    
+
     #[Route('/report', name: 'report')]
     public function report(): Response
     {
@@ -42,6 +42,21 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/api', name: 'api')]
+    public function api(): Response
+    {
+        $routes = [
+            'quote' => 'Displays a random quote',
+            'deck' => 'Returns the sorted deck of cards in JSON format',
+            'deck_shuffle' => 'Shuffles the deck of cards and returns it in JSON format',
+            'deck_draw' => 'Draws a single card from the deck and returns it in JSON format',
+            'deck_draw_multiple' => 'Draws multiple cards from the deck and returns them in JSON format',
+        ];
+        return $this->render('api.html.twig', [
+            'routes' => $routes,
+        ]);
+    }
+
     #[Route('/api/quote', name: 'quote')]
     public function quote(): JsonResponse
     {
@@ -50,7 +65,7 @@ class HomeController extends AbstractController
             'Forget your troubles, cmon get happy. - Judy Garland',
             'Happiness is a butterfly. - Lana Del Rey',
         ];
-        
+
         $randomQuote = $quotes[array_rand($quotes)];
 
         $date = new \DateTime();

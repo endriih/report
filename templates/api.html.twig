@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<body>
+    <div class="route-c">
+        <table class="route-table">
+            <tr>
+                <th>Route</th>
+                <th>Description</th>
+                <th>Method</th>
+            </tr>
+            <tr>
+                <td><a href="{{ path('quote') }}" class="route-link">/public/api/quote</a></td>
+                <td><a>Retrieves a quote of the day.</a></td>
+                <td><a>GET</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('api_deck') }}" class="route-link">/public/api/deck</a></td>
+                <td><a>Retrieves the deck of existing cards inside deck object.</a></td>
+                <td><a>GET</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('api_shuffle') }}" class="route-link">/public/api/deck/shuffle</a></td>
+                <td><a>Shuffles the deck.</a></td>
+                <td><a>POST</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('api_draw') }}" class="route-link">/public/api/deck/draw</a></td>
+                <td><a>Draws a card from the existing hand object.</a></td>
+                <td><a>POST</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('api_draw_multiple', {'num': 5}) }}" class="route-link">/public/api/deck/draw/5</a></td>
+                <td><a>Draws n cards from the existing hand object.</a></td>
+                <td><a>POST</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+{% endblock %}

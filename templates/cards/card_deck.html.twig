@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+{% block body %}
+{% include 'cards/card_nav.html.twig' %}
+<div class="cards">
+    <h1>{{ app.request.attributes.get('_route') == 'deck_shuffle' ? 'Shuffled Deck:' : 'Deck:' }}</h1>
+{% for cardGraphic in cardsGraphic %}
+    <img class="card" src="{{ asset('img/cards/' ~ cardGraphic.getImage()) }}" alt="">
+{% endfor %}
+</div>
+{% endblock %}

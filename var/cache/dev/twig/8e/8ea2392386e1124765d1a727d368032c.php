@@ -71,7 +71,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/animeclouds.jpg"), "html", null, true);
         echo "); background-repeat: no-repeat; background-size: cover;\">
         </header> 
-        <nav>
+        <nav class=\"nav\">
             <h1>endri<h1>
             <div class=\"links\">
                 <a href=\"";
@@ -92,14 +92,18 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         echo "\">Lucky</a>
                 <a href=\"";
         // line 27
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("quote");
-        echo "\">Quote</a>
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("api");
+        echo "\">Api</a>
+                <a href=\"";
+        // line 28
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("card");
+        echo "\">Card</a>
             </div>
         </nav>
         ";
-        // line 30
-        $this->displayBlock('body', $context, $blocks);
         // line 31
+        $this->displayBlock('body', $context, $blocks);
+        // line 32
         echo "
         <footer><p>Denna sidan är Copyright © av mig.</p></footer>
     </body>
@@ -178,7 +182,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     }
 
-    // line 30
+    // line 31
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -208,7 +212,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     public function getDebugInfo()
     {
-        return array (  182 => 30,  169 => 14,  159 => 13,  146 => 10,  136 => 9,  117 => 5,  103 => 31,  101 => 30,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  71 => 18,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
+        return array (  186 => 31,  173 => 14,  163 => 13,  150 => 10,  140 => 9,  121 => 5,  107 => 32,  105 => 31,  99 => 28,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  71 => 18,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -232,14 +236,15 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
     <body>
         <header style=\"background-image: url({{ asset('img/animeclouds.jpg') }}); background-repeat: no-repeat; background-size: cover;\">
         </header> 
-        <nav>
+        <nav class=\"nav\">
             <h1>endri<h1>
             <div class=\"links\">
                 <a href=\"{{ path('home') }}\">Home</a>
                 <a href=\"{{ path('about') }}\">About</a>
                 <a href=\"{{ path('report') }}\">Report</a>
                 <a href=\"{{ path('lucky') }}\">Lucky</a>
-                <a href=\"{{ path('quote') }}\">Quote</a>
+                <a href=\"{{ path('api') }}\">Api</a>
+                <a href=\"{{ path('card') }}\">Card</a>
             </div>
         </nav>
         {% block body %}{% endblock %}

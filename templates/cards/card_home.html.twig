@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% block body %}
+{% include 'cards/card_nav.html.twig' %}
+<div class="route-c-2">
+    <table class="route-table">
+        <tr>
+            <th>Class</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><a>Card</a></td>
+            <td><a>Card klassen som innehåller attributerna rank och suit. Rank är värdet på kortet och suit är mönstret, som båda är sträng värden.</a></td>
+        </tr>
+        <tr>
+            <td><a>CardGraphic</a></td>
+            <td><a>CardGraphic tar emot ett Card objekt i sin konstruktor har även en getImage metod som tar fram svg länken för kortbilderna.</a></td>
+        </tr>
+        <tr>
+            <td><a>DeckOfCards</a></td>
+            <td><a>DeckOfCards klassen representerar en standard kortlek som består av 52 kort. Korten är instanser av CardGraphic objekt som representerar de individuella korten i kortleken. Korten kan slumpas, enskilda kort eller flera kort kan hämtas ut. Klassen kan även återställa kortleken till dess ursprungliga blandning av kort. Relationen mellan CardGraphic och DeckOfCards kan beskrivas som en komposition eftersom korten instantieras inuti DeckOfCards vilket innebär att klassen äger korten. Korten kan inte existera utanför DeckOfCards.</a></td>
+        </tr>
+        <tr>
+            <td><a>CardHand</a></td>
+            <td><a>CardHand är en klass som representerar en hand av kort som innehåller flera instanser av Card-objekt. Det är en dependency relation mellan CardHand och DeckOfCards eftersom CardHand är beroende av DeckOfCards för att fungera korrekt. Mellan CardGraphic och CardHand sitter en aggregation eftersom en instans av CardHand kan innehålla flera instanser av CardGraphic, men CardGraphic kan också existera utanför CardHand.</a></td>
+        </tr>
+    </table>
+    <div class="img-c">
+        <img class="UML" src="{{ asset('img/CardUML.png') }}" alt="">
+    </div>
+</div>
+{% endblock %}

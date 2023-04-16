@@ -1,24 +1,15 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'endri/report',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '46184a3149e3f5c6cc518b5299e8c00ccaf3b733',
+        'reference' => '7b5808d2e1e6c2c53fc3f961f8707afba689e3f9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '46184a3149e3f5c6cc518b5299e8c00ccaf3b733',
-            'type' => 'project',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'doctrine/annotations' => array(
             'pretty_version' => '2.0.1',
             'version' => '2.0.1.0',
@@ -172,6 +163,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'endri/report' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '7b5808d2e1e6c2c53fc3f961f8707afba689e3f9',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'masterminds/html5' => array(
             'pretty_version' => '2.7.6',
             'version' => '2.7.6.0',
@@ -266,9 +266,9 @@
             'dev_requirement' => false,
         ),
         'phpstan/phpdoc-parser' => array(
-            'pretty_version' => '1.16.1',
-            'version' => '1.16.1.0',
-            'reference' => 'e27e92d939e2e3636f0a1f0afaba59692c0bf571',
+            'pretty_version' => '1.18.1',
+            'version' => '1.18.1.0',
+            'reference' => '22dcdfd725ddf99583bfe398fc624ad6c5004a0f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpstan/phpdoc-parser',
             'aliases' => array(),
