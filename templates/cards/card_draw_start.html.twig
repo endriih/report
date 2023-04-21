@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% include 'cards/card_nav.html.twig' %}
+<div class="form">
+<h1>Draw cards:</h1>
+    <form method="post" action="{{ path('draw_callback') }}">
+        <input type="number" name="num_cards" min="1" max="52" value="1">
+        <input type="submit" name="draw_cards" value="Draw">
+    </form>
+</div>
+{% endblock %}

@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class CardsController extends AbstractController
 {
@@ -71,7 +72,6 @@ class CardsController extends AbstractController
         ]);
     }
 
-
     #[Route('/card/deck/draw/{num<\d+>}', name: 'deck_draw_multiple')]
     public function drawMultiple(SessionInterface $session, int $num): Response
     {
@@ -87,10 +87,12 @@ class CardsController extends AbstractController
             $hand = new CardHand($deck);
             $session->set('hand', $hand);
         }
+
         for ($i = 0; $i < $num; $i++) {
             $card = $hand->draw();
             $cards[] = $card->getImage();
         }
+
         $remainingCards = $hand->getAmount();
 
         return $this->render('cards/card_draw_multiple.html.twig', [
@@ -98,6 +100,21 @@ class CardsController extends AbstractController
             'remainingCards' => $remainingCards,
         ]);
     }
+
+    #[Route('/card/deck/draw_start', name: 'draw_start')]
+    public function drawStart(): Response
+    {
+        return $this->render('cards/card_draw_start.html.twig');
+    }
+
+    #[Route('/card/deck/draw_callback', name: 'draw_callback', methods: ['POST'])]
+    public function drawCallback(Request $request): Response
+    {
+        $numCards = $request->request->get('num_cards', 1);
+        return $this->redirectToRoute('deck_draw_multiple', ['num' => $numCards]);
+    }
+
+
 
     #[Route('/api/deck', name: 'api_deck', methods: ['GET'])]
     public function apiDeck(): JsonResponse

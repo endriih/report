@@ -18,6 +18,8 @@ return [
         '/card/deck' => [[['_route' => 'deck', '_controller' => 'App\\Controller\\CardsController::deck'], null, null, null, false, false, null]],
         '/card/deck/shuffle' => [[['_route' => 'deck_shuffle', '_controller' => 'App\\Controller\\CardsController::shuffleDeck'], null, null, null, false, false, null]],
         '/card/deck/draw' => [[['_route' => 'deck_draw', '_controller' => 'App\\Controller\\CardsController::draw'], null, null, null, false, false, null]],
+        '/card/deck/draw_start' => [[['_route' => 'draw_start', '_controller' => 'App\\Controller\\CardsController::drawStart'], null, null, null, false, false, null]],
+        '/card/deck/draw_callback' => [[['_route' => 'draw_callback', '_controller' => 'App\\Controller\\CardsController::drawCallback'], null, ['POST' => 0], null, false, false, null]],
         '/api/deck' => [[['_route' => 'api_deck', '_controller' => 'App\\Controller\\CardsController::apiDeck'], null, ['GET' => 0], null, false, false, null]],
         '/api/deck/shuffle' => [[['_route' => 'api_shuffle', '_controller' => 'App\\Controller\\CardsController::apiShuffle'], null, ['GET' => 0], null, false, false, null]],
         '/api/deck/draw' => [[['_route' => 'api_draw', '_controller' => 'App\\Controller\\CardsController::apiDraw'], null, ['GET' => 0], null, false, false, null]],

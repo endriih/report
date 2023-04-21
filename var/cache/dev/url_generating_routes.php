@@ -21,6 +21,8 @@ return [
     'deck_shuffle' => [[], ['_controller' => 'App\\Controller\\CardsController::shuffleDeck'], [], [['text', '/card/deck/shuffle']], [], [], []],
     'deck_draw' => [[], ['_controller' => 'App\\Controller\\CardsController::draw'], [], [['text', '/card/deck/draw']], [], [], []],
     'deck_draw_multiple' => [['num'], ['_controller' => 'App\\Controller\\CardsController::drawMultiple'], ['num' => '\\d+'], [['variable', '/', '\\d+', 'num', true], ['text', '/card/deck/draw']], [], [], []],
+    'draw_start' => [[], ['_controller' => 'App\\Controller\\CardsController::drawStart'], [], [['text', '/card/deck/draw_start']], [], [], []],
+    'draw_callback' => [[], ['_controller' => 'App\\Controller\\CardsController::drawCallback'], [], [['text', '/card/deck/draw_callback']], [], [], []],
     'api_deck' => [[], ['_controller' => 'App\\Controller\\CardsController::apiDeck'], [], [['text', '/api/deck']], [], [], []],
     'api_shuffle' => [[], ['_controller' => 'App\\Controller\\CardsController::apiShuffle'], [], [['text', '/api/deck/shuffle']], [], [], []],
     'api_draw' => [[], ['_controller' => 'App\\Controller\\CardsController::apiDraw'], [], [['text', '/api/deck/draw']], [], [], []],
