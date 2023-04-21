@@ -44,11 +44,13 @@ class DeckOfCards
     {
         $cards = [];
         foreach ($this->cards as $card) {
-            $cardGraphic = new CardGraphic($card);
+            $cardGraphic = new CardGraphic($card->getSuit(), $card->getRank());
             $cards[] = $cardGraphic;
         }
         return $cards;
     }
+
+
 
     public function shuffle()
     {
@@ -64,24 +66,18 @@ class DeckOfCards
     public function getSortedList(): array
     {
         $cards = $this->initialCards;
-
-        // here we define the custom comparison function for usorts second parameter
         $compareCards = function ($a, $b) {
-            // initiate the suitorder and then search the cards suit index for later comparison
             $suitOrder = ['diamonds', 'hearts', 'clubs', 'spades'];
             $aSuitIndex = array_search($a->getSuit(), $suitOrder);
             $bSuitIndex = array_search($b->getSuit(), $suitOrder);
 
             if ($aSuitIndex === $bSuitIndex) {
-                // if suits of both cards match we compare card ranks with spaceship operator
                 return $a->getRank() <=> $b->getRank();
             } else {
-                // if suits of both cards do not match we compare the suits with spaceship operator
                 return $aSuitIndex <=> $bSuitIndex;
             }
         };
-
-        // here we sort the cards using our custom comparison function
+        
         usort($cards, $compareCards);
 
         return $cards;
