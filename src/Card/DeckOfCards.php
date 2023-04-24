@@ -77,7 +77,7 @@ class DeckOfCards
                 return $aSuitIndex <=> $bSuitIndex;
             }
         };
-        
+
         usort($cards, $compareCards);
 
         return $cards;

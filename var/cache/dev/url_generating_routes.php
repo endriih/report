@@ -27,6 +27,7 @@ return [
     'api_shuffle' => [[], ['_controller' => 'App\\Controller\\CardsController::apiShuffle'], [], [['text', '/api/deck/shuffle']], [], [], []],
     'api_draw' => [[], ['_controller' => 'App\\Controller\\CardsController::apiDraw'], [], [['text', '/api/deck/draw']], [], [], []],
     'api_draw_multiple' => [['num'], ['_controller' => 'App\\Controller\\CardsController::apiDrawMultiple'], ['num' => '\\d+'], [['variable', '/', '\\d+', 'num', true], ['text', '/api/deck/draw']], [], [], []],
+    'game' => [[], ['_controller' => 'App\\Controller\\GameController::gameHome'], [], [['text', '/game']], [], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::number'], [], [['text', '/']], [], [], []],
     'about' => [[], ['_controller' => 'App\\Controller\\HomeController::about'], [], [['text', '/about']], [], [], []],
     'report' => [[], ['_controller' => 'App\\Controller\\HomeController::report'], [], [['text', '/report']], [], [], []],

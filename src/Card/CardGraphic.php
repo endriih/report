@@ -13,4 +13,3 @@ class CardGraphic extends Card
         return "{$suit}_{$rank}.svg";
     }
 }
-
