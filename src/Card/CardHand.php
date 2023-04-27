@@ -6,9 +6,9 @@ use App\Card\DeckOfCards;
 
 class CardHand
 {
-    private $cards;
-    private $initialCards;
-    private $hand;
+    private array $cards;
+    private array $initialCards;
+    private array $hand;
 
     public function __construct(DeckOfCards $deck)
     {
@@ -57,7 +57,7 @@ class CardHand
         return $cardGraphics;
     }
 
-    public function reset()
+    public function reset(): void
     {
         $this->cards = $this->initialCards;
     }

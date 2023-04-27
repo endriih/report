@@ -7,8 +7,8 @@ use App\Card\Card;
 
 class DeckOfCards
 {
-    private $cards;
-    private $initialCards;
+    private array $cards;
+    private array $initialCards;
 
     public function __construct()
     {
@@ -52,13 +52,13 @@ class DeckOfCards
 
 
 
-    public function shuffle()
+    public function shuffle(): array
     {
         shuffle($this->cards);
         return $this->cards;
     }
 
-    public function reset()
+    public function reset(): void
     {
         $this->cards = $this->initialCards;
     }
