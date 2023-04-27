@@ -8,19 +8,21 @@ class CardHand
 {
     private $cards;
     private $initialCards;
+    private $hand;
 
     public function __construct(DeckOfCards $deck)
     {
         $this->initialCards = [];
         $this->cards = $deck->getCards();
         $this->initialCards = $this->cards;
+        $this->hand = [];
     }
 
     public function getCards(): array
     {
         return $this->cards;
     }
-    
+
     public function draw(): CardGraphic
     {
         if (count($this->cards) == 0) {
@@ -31,13 +33,28 @@ class CardHand
         $card = $this->cards[$index];
         unset($this->cards[$index]);
         $this->cards = array_values($this->cards);
+        $this->hand[] = $card;
+
         return $card;
     }
-
 
     public function getAmount(): int
     {
         return count($this->cards);
+    }
+
+    public function getHand(): array
+    {
+        return $this->hand;
+    }
+
+    public function getCardGraphics(): array
+    {
+        $cardGraphics = [];
+        foreach ($this->hand as $card) {
+            $cardGraphics[] = $card->getImage();
+        }
+        return $cardGraphics;
     }
 
     public function reset()
@@ -50,15 +67,17 @@ class CardHand
         $total = 0;
         $aces = 0;
 
-        foreach ($this->cards as $card) {
+        foreach ($this->hand as $card) {
             $value = $card->getRank();
-
+        
             if ($value == 1) {
                 $aces++;
                 $total += 11;
-            } else if ($value >= 10) {
+            }
+            if ($value >= 10) {
                 $total += 10;
-            } else {
+            }
+            if ($value > 1 && $value < 10) {
                 $total += $value;
             }
         }

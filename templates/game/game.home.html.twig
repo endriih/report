@@ -1,4 +1,35 @@
 {% extends "base.html.twig" %}
 {% block body %}
-<h1>this is my game</h1>
+<div class="game-container">
+<div class="game-text">
+   <div class="route-c">
+        <table class="route-table">
+            <tr>
+                <th>Länk</th>
+                <th>Beskrivning</th>
+            </tr>
+            <tr>
+                <td><a href="{{ path('board') }}" class="route-link">Spela 21</a></td>
+                <td><a>Starta en runda av spelet 21 där motståndaren är banken.</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('docs') }}" class="route-link">Dokumentation</a></td>
+                <td><a>Visar dokumentationen för spelet såsom flödesscheman, beskrivningar etc.</a></td>
+            </tr>
+        </table>
+    </div>
+    <h1>Spelet 21</h1>
+    <p>Spelet 21 utgår på att man som spelare har möjligheten att dra hur många kort som helst sålänge den sammanlagda summan av korten understiger eller är lika med 21. Poängen för de olika korten följer det generella poängssystemet. Dock i spelet 21 så har essen två värden, både 1 och 11 beroende på summan av handen.</p>
+    <h1>Hur spelet går till:</h1>
+    <ol>
+        <li><p>Spelaren kommer till ett spelplan där handen för spelaren och banken syns (inga kort har dragits ännu).</p></li>
+        <li><p>Spelaren har möjlighten att dra kortet, återställa spelet, eller stanna på den hand spelaren har.</p></li>
+        <li><p>Spelaren har möjligheten att dra kort sålänge summan inte överskrider 21. Annars vinner banken.</p></li>
+        <li><p>Spelaren har möjlighet att stanna med handen den har. När spelaren stannar är det handens tur.</p></li>
+        <li><p>Banken drar kort tills den antingen får 17 eller över. Om banken får en poängsumma över 21 vinner spelaren.</p></li>
+        <li><p>Om banken och spelaren har samma poängsumma vinner banken.</p></li>
+        <li><p>Om banken har en poängsumma mindre än spelarens och båda har en poängsumma likamed 21 eller mindre vinner spelaren.</p></li>
+    </ol>
+</div>
+</div>
 {% endblock %}

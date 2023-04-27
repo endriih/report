@@ -66,7 +66,7 @@ class __TwigTemplate_650b070136375238094c0adee138600b extends Template
 
         // line 3
         echo "    <div class=\"reports\">
-            <div class=\"report_links\">
+            <div class=\"report_links\" style=\"margin-top:50px;\">
                 <ul>
                     <h1>Innehållsförteckning</h1>
                     <li><a href=\"#kmom01\" class=\"kmom01_link\">Kmom01</a></li>
@@ -110,7 +110,13 @@ class __TwigTemplate_650b070136375238094c0adee138600b extends Template
             </section>
             <section class=\"kmom03\" id=\"kmom03\">
                 <h2>Kmom03</h2>
-                <p>...</p>
+                <p>Det kändes helt okej att modellera kortspelet med flowcharts och pseudokoden, och kände att pseudokoden var till stor hjälp speciellt för att visualisera hur själva uppsättningen av de olika if statements ska agera etc. flödesschema är jag inte jättesäker på ifall jag gjorde rätt men tycker ändå att den visualiserar flödet av programmet hur programmet går tillväga.</p>
+                <br>
+                <p>Med uppgiften är jag ändå lite nöjd med att jag lyckades klara uppgiften med bara de klasser jag skapat sen tidigare. I senare kursmoment vet jag dock inte om det här var ett bra val eller inte, det återstår att se. Men annars tycker jag det gick ganska bra att enbart använda de klasser jag redan hade tillgängligt sen innan och bygga på de (lägga till metoder). Det finns ju flertal förbättringar som kan göras med programmet men jag valde att hålla det väldigt simpelt.</p>
+                <br>
+                <p>Att koda med symfony har varit ganska smidigt, tycker om hela route/controller och twig systemet, känns väldigt organiserat.</p>
+                <br>
+                <p>Mitt TIL för detta kursmoment har jag mestadels lärt mig om flowcharts och pseudokod vilket jag tycker är en stor fördel att ha med sig när man jobbar med en uppgift.</p>
             </section>
             <section class=\"kmom04\" id=\"kmom04\">
                 <h2>Kmom04</h2>
@@ -159,7 +165,7 @@ class __TwigTemplate_650b070136375238094c0adee138600b extends Template
         return new Source("{% extends \"base.html.twig\" %}
 {% block body %}
     <div class=\"reports\">
-            <div class=\"report_links\">
+            <div class=\"report_links\" style=\"margin-top:50px;\">
                 <ul>
                     <h1>Innehållsförteckning</h1>
                     <li><a href=\"#kmom01\" class=\"kmom01_link\">Kmom01</a></li>
@@ -203,7 +209,13 @@ class __TwigTemplate_650b070136375238094c0adee138600b extends Template
             </section>
             <section class=\"kmom03\" id=\"kmom03\">
                 <h2>Kmom03</h2>
-                <p>...</p>
+                <p>Det kändes helt okej att modellera kortspelet med flowcharts och pseudokoden, och kände att pseudokoden var till stor hjälp speciellt för att visualisera hur själva uppsättningen av de olika if statements ska agera etc. flödesschema är jag inte jättesäker på ifall jag gjorde rätt men tycker ändå att den visualiserar flödet av programmet hur programmet går tillväga.</p>
+                <br>
+                <p>Med uppgiften är jag ändå lite nöjd med att jag lyckades klara uppgiften med bara de klasser jag skapat sen tidigare. I senare kursmoment vet jag dock inte om det här var ett bra val eller inte, det återstår att se. Men annars tycker jag det gick ganska bra att enbart använda de klasser jag redan hade tillgängligt sen innan och bygga på de (lägga till metoder). Det finns ju flertal förbättringar som kan göras med programmet men jag valde att hålla det väldigt simpelt.</p>
+                <br>
+                <p>Att koda med symfony har varit ganska smidigt, tycker om hela route/controller och twig systemet, känns väldigt organiserat.</p>
+                <br>
+                <p>Mitt TIL för detta kursmoment har jag mestadels lärt mig om flowcharts och pseudokod vilket jag tycker är en stor fördel att ha med sig när man jobbar med en uppgift.</p>
             </section>
             <section class=\"kmom04\" id=\"kmom04\">
                 <h2>Kmom04</h2>

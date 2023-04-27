@@ -1,0 +1,61 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="game-container">
+    <div class="game-text">
+        <h1>Klasser:</h1>
+        <p style="margin-bottom: 20px;">För klasserna valde jag att jobba med samma klasser från tidigare kursmoment eftersom jag inte kände ett behov av att krångla till det med ytterligare klasser, det som fanns var tillräckligt. Sen är det visserligen bättre att bygga ut programmet med fler klasser men för detta kursmoment höll jag mig till tidigare klasser och byggde ut de istället med fler metoder etc.</p>
+        <div class="route-c">
+            <table class="route-table">
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><a>Card</a></td>
+                    <td><a>Card klassen som innehåller attributerna rank och suit. Rank är värdet på kortet och suit är mönstret, som båda är sträng värden.</a></td>
+                </tr>
+                <tr>
+                    <td><a>CardGraphic</a></td>
+                    <td><a>CardGraphic ärver från card och har en getImage metod som tar fram svg länken för kortbilderna.</a></td>
+                </tr>
+                <tr>
+                    <td><a>DeckOfCards</a></td>
+                    <td><a>DeckOfCards klassen representerar en standard kortlek som består av 52 kort. Korten är instanser av CardGraphic objekt som representerar de individuella korten i kortleken. Korten kan slumpas, enskilda kort eller flera kort kan hämtas ut. Klassen kan även återställa kortleken till dess ursprungliga blandning av kort. Relationen mellan CardGraphic och DeckOfCards kan beskrivas som en komposition eftersom korten instantieras inuti DeckOfCards vilket innebär att klassen äger korten. Korten kan inte existera utanför DeckOfCards.</a></td>
+                </tr>
+                <tr>
+                    <td><a>CardHand</a></td>
+                    <td><a>CardHand är en klass som representerar en hand av kort som innehåller flera instanser av Card-objekt. Det är en dependency relation mellan CardHand och DeckOfCards eftersom CardHand är beroende av DeckOfCards för att fungera korrekt. Mellan CardGraphic och CardHand sitter en aggregation eftersom en instans av CardHand kan innehålla flera instanser av CardGraphic, men CardGraphic kan också existera utanför CardHand.</a></td>
+                </tr>
+            </table>
+        </div>
+        <h1 style="margin-top:20px;">Flödesschema för spelet:</h1>
+        <img src="{{ asset('img/flowchart.png') }}" alt="">
+        <h1 style="margin-top:20px;">Pseudokod för att beräkna poängen:</h1>
+        <pre>
+            <code>
+            function getTotalValue():
+            SET total to 0
+            SET aces to 0
+            
+            FOR each card in hand:
+                SET value to the rank of the card
+                
+                IF value equals 1:
+                    INCREMENT aces
+                    ADD 11 to total
+                IF value is greater than or equal to 10:
+                    ADD 10 to total
+                IF value is greater than 1 and less than 10:
+                    ADD value to total
+                    
+            WHILE aces > 0 and total > 21:
+                SUBTRACT 10 from total
+                DECREMENT aces
+                
+            RETURN total
+            </code>
+        </pre>
+    </div>
+</div>
+{% endblock %}
+

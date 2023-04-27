@@ -169,8 +169,8 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #f2f2f2; /* Set the background color of your footer */
-    padding: 5px; /* Set the padding of your footer */
+    background-color: #f2f2f2;
+    padding: 5px;
 }
 
 footer p {
@@ -187,7 +187,6 @@ header {
   .report_links ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 50px;
     margin-left: 25px;
     border: 1px solid #ccc;
     display: inline-block;
@@ -298,6 +297,32 @@ td a {
     margin-bottom: 20px;
 }
 
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    margin: 20px;
+    width: 400px;
+    margin: 0 auto;
+}
+    flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #ffffff;
+    background-color: #9d3923;
+    border-color: #ffeeba;
+    margin: 20px;
+    width: 400px;
+    margin: 0 auto;
+}
+.flash-warning:before {
+    content: "⚠";
+}
+
 
 /* card nav */
 
@@ -325,3 +350,80 @@ td a {
     flex-direction: column;
     align-items: center;
 }
+
+/* game css */
+
+.game-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.player-hand {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid red;
+    margin: 10px;
+    padding: 10px 40px;
+    min-height: 260px;
+    min-width: 200px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.player-hand h1 {
+    text-decoration: underline;
+}
+
+
+.player-hand img {
+    width: 100px;
+    height: 150px;
+    margin: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-c {
+    margin-top: 0;
+}
+
+.game-text {
+    width: 700px;
+    height: auto;
+    margin: 50px auto;
+    padding: 30px;
+    font-size: 16px;
+}
+
+.game-text p {
+    font-size: 16px;
+}
+
+.game-text h1 {
+    margin-bottom: 0 10px;
+}
+
+ol {
+    list-style: disc;
+    margin: 0;
+    padding: 0 0 0 25px;
+}
+
+ol li p {
+    font-size: 16px;
+}
+
+.game-container {
+    padding: 15px;
+}
+
+pre code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+}
+  

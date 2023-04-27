@@ -1,14 +1,33 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>Player Hand</h1>
-    {% for card in cards %}
-        <img src="{{ asset('img/cards/' ~ card) }}" alt="">
-    {% endfor %}
-
-    {% if playerHand.getTotalValue() > 21 %}
-        <h2>You lost!</h2>
-    {% else %}
-        <a href="{{ path('board') }}?draw=true" class="btn btn-primary">Add Card</a>
-    {% endif %}
+<div class="outer-c">
+<div class="game-c">
+    <div class="button-c report_links">
+        <ul>
+            <h1>Knappar för spelet</h1>
+            <li><a href="{{ path('reset') }}" class="btn btn-primary">Återställ</a></li>
+            <li><a href="{{ path('draw') }}" class="btn btn-primary">Dra kort</a></li>
+            <li><a href="{{ path('stop') }}" class="btn btn-primary">Stanna</a></li>
+        </ul>
+    </div>
+    <div class="player-hand">
+        <h1>Player Hand: {{playerHand.getTotalValue()}}</h1>
+        <div class="images">
+        {% for card in cards %}
+            <img src="{{ asset('img/cards/' ~ card) }}" alt="">
+        {% endfor %}
+        </div>
+    </div>
+    <div class="player-hand">
+        <h1>Bank Hand: {{bankHand.getTotalValue()}}</h1>
+        <div class="images">
+                {% for card in bankCards %}
+                    <img src="{{ asset('img/cards/' ~ card) }}" alt="">
+                {% endfor %}
+        </div>
+    </div>
+</div>
+{{ include('flash.html.twig') }}}
+</div>
 {% endblock %}

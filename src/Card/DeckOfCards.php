@@ -66,16 +66,15 @@ class DeckOfCards
     public function getSortedList(): array
     {
         $cards = $this->initialCards;
-        $compareCards = function ($a, $b) {
+        $compareCards = function ($card1, $card2) {
             $suitOrder = ['diamonds', 'hearts', 'clubs', 'spades'];
-            $aSuitIndex = array_search($a->getSuit(), $suitOrder);
-            $bSuitIndex = array_search($b->getSuit(), $suitOrder);
+            $card1SuitIndex = array_search($card1->getSuit(), $suitOrder);
+            $card2SuitIndex = array_search($card2->getSuit(), $suitOrder);
 
-            if ($aSuitIndex === $bSuitIndex) {
-                return $a->getRank() <=> $b->getRank();
-            } else {
-                return $aSuitIndex <=> $bSuitIndex;
+            if ($card1SuitIndex === $card2SuitIndex) {
+                return $card1->getRank() <=> $card2->getRank();
             }
+            return $card1SuitIndex <=> $card2SuitIndex;            
         };
 
         usort($cards, $compareCards);
