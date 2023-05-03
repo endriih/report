@@ -12,7 +12,7 @@
         </ul>
     </div>
     <div class="player-hand">
-        <h1>Player Hand: {{playerHand.getTotalValue()}}</h1>
+        <h1>Player Hand: {{playerScore}}</h1>
         <div class="images">
         {% for card in cards %}
             <img src="{{ asset('img/cards/' ~ card) }}" alt="">
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="player-hand">
-        <h1>Bank Hand: {{bankHand.getTotalValue()}}</h1>
+        <h1>Bank Hand: {{bankScore}}</h1>
         <div class="images">
                 {% for card in bankCards %}
                     <img src="{{ asset('img/cards/' ~ card) }}" alt="">

@@ -343,6 +343,7 @@
       <argument type="service" id="App\Card\DeckOfCards"/>
     </service>
     <service id="App\Card\DeckOfCards" class="App\Card\DeckOfCards" autowire="true" autoconfigure="true"/>
+    <service id="App\Card\Game" class="App\Card\Game" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\CardsController" class="App\Controller\CardsController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>

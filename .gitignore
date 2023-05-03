@@ -1,3 +1,4 @@
 tools/
 var/cache/
 var/cache/*/*/twig/*
+.phpdoc/
