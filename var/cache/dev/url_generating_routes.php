@@ -40,4 +40,10 @@ return [
     'lucky' => [[], ['_controller' => 'App\\Controller\\HomeController::fox'], [], [['text', '/lucky']], [], [], []],
     'api' => [[], ['_controller' => 'App\\Controller\\HomeController::api'], [], [['text', '/api']], [], [], []],
     'quote' => [[], ['_controller' => 'App\\Controller\\HomeController::quote'], [], [['text', '/api/quote']], [], [], []],
+    'library' => [[], ['_controller' => 'App\\Controller\\LibraryController::index'], [], [['text', '/library']], [], [], []],
+    'book_create' => [[], ['_controller' => 'App\\Controller\\LibraryController::createBook'], [], [['text', '/library/create']], [], [], []],
+    'book_submit' => [[], ['_controller' => 'App\\Controller\\LibraryController::handleBookForm'], [], [['text', '/book/submit']], [], [], []],
+    'read' => [['id'], ['_controller' => 'App\\Controller\\LibraryController::read'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/read']], [], [], []],
+    'book_delete_by_id' => [['id'], ['_controller' => 'App\\Controller\\LibraryController::deleteBookById'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/book/delete']], [], [], []],
+    'book_edit_by_id' => [['id'], ['_controller' => 'App\\Controller\\LibraryController::editBook'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/book/edit']], [], [], []],
 ];

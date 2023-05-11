@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Create a new book</h1>
+
+    <form method="POST" action="{{ path('book_submit') }}">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="name">Author:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="isbn">ISBN:</label>
+        <input type="number" id="isbn" name="isbn" required>
+
+        <label for="image">Image:</label>
+        <input type="text" id="image" name="image" required>
+
+        <button type="submit">Create</button>
+    </form>
+{% endblock %}

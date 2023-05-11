@@ -1,0 +1,33 @@
+{# templates/library/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="route-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Image</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td><a class="link" href="{{ path('read', {'id': book.id}) }}">{{ book.title }}</a></td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.image }}</td>
+                    <td><a href="{{ path('book_edit_by_id', {'id': book.id}) }}">Redigera</a></td>
+                    <td><a href="{{ path('book_delete_by_id', {'id': book.id}) }}">Radera</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="button-wrapper">
+        <a class="button" href="{{ path('book_create') }}">Lägg till bok</a>
+    </div>
+{% endblock %}
