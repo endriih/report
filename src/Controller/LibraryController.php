@@ -17,12 +17,12 @@ class LibraryController extends AbstractController
     public function index(BookRepository $bookRepository): Response
     {
         $books = $bookRepository->findAll();
-    
+
         return $this->render('library/index.html.twig', [
             'books' => $books,
         ]);
     }
-    
+
 
     #[Route('/library/create', name: 'book_create')]
     public function createBook(): Response
@@ -35,10 +35,10 @@ class LibraryController extends AbstractController
     {
         $entityManager = $doctrine->getManager();
 
-        $name = $request->request->get('name');
-        $title = $request->request->get('title');
+        $name = (string) $request->request->get('name');
+        $title = (string) $request->request->get('title');
         $isbn = $request->request->getInt('isbn');
-        $image = $request->request->get('image');
+        $image = (string) $request->request->get('image');        
 
         $book = new Book();
         $book->setName($name);
@@ -81,7 +81,7 @@ class LibraryController extends AbstractController
     }
 
     #[Route('/book/edit/{id}', name: 'book_edit_by_id')]
-    public function editBook(Request $request,  ManagerRegistry $doctrine, int $id): Response
+    public function editBook(Request $request, ManagerRegistry $doctrine, int $id): Response
     {
         $entityManager = $doctrine->getManager();
         $book = $entityManager->getRepository(Book::class)->find($id);
@@ -110,8 +110,7 @@ class LibraryController extends AbstractController
     public function getLibraryBooks(BookRepository $bookRepository): JsonResponse
     {
         $books = $bookRepository->findAll();
-    
-        // Transform the books into an array
+
         $bookArray = [];
         foreach ($books as $book) {
             $bookArray[] = [
@@ -122,14 +121,14 @@ class LibraryController extends AbstractController
                 'image' => $book->getImage(),
             ];
         }
-    
+
         return $this->json([
             'books' => $bookArray
         ], 200, [], [
             'json_encode_options' => JSON_PRETTY_PRINT
         ]);
-    }   
-    
+    }
+
     #[Route('/api/library/book/{isbn}', name: 'api_library_book', methods: ['GET'])]
     public function getBookByISBN(string $isbn, BookRepository $bookRepository): JsonResponse
     {
