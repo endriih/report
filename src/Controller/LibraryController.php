@@ -48,7 +48,9 @@ class LibraryController extends AbstractController
         $entityManager->persist($book);
         $entityManager->flush();
 
-        return $this->redirectToRoute('library');
+        $bookId = $book->getId();
+
+        return $this->redirectToRoute('read', ['id' => $bookId]);
     }
 
     #[Route('/read/{id}', name: 'read')]

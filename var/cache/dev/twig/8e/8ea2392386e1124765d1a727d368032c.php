@@ -102,12 +102,16 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("game");
         echo "\">Game</a>
+                 <a href=\"";
+        // line 30
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("library");
+        echo "\">Library</a>
             </div>
         </nav>
         ";
-        // line 32
-        $this->displayBlock('body', $context, $blocks);
         // line 33
+        $this->displayBlock('body', $context, $blocks);
+        // line 34
         echo "
         <footer><p>Denna sidan är Copyright © av mig.</p></footer>
     </body>
@@ -186,7 +190,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     }
 
-    // line 32
+    // line 33
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -216,7 +220,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     public function getDebugInfo()
     {
-        return array (  190 => 32,  177 => 14,  167 => 13,  154 => 10,  144 => 9,  125 => 5,  111 => 33,  109 => 32,  103 => 29,  99 => 28,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  71 => 18,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
+        return array (  194 => 33,  181 => 14,  171 => 13,  158 => 10,  148 => 9,  129 => 5,  115 => 34,  113 => 33,  107 => 30,  103 => 29,  99 => 28,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  71 => 18,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -250,6 +254,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
                 <a href=\"{{ path('api') }}\">Api</a>
                 <a href=\"{{ path('card') }}\">Card</a>
                 <a href=\"{{ path('game') }}\">Game</a>
+                 <a href=\"{{ path('library') }}\">Library</a>
             </div>
         </nav>
         {% block body %}{% endblock %}
