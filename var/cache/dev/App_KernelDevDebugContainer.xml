@@ -6379,12 +6379,14 @@
         <argument key="book" type="service_closure" id=".errored..service_locator.VH_0EHf.App\Entity\Book"/>
       </argument>
     </service>
-    <service id=".service_locator.p3qB4wz" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.P9nnyRT" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\HomeController::fox" type="service_closure" id=".service_locator.eAcXx9a"/>
         <argument key="App\Controller\LibraryController::deleteBookById" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\LibraryController::editBook" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\LibraryController::getBookByISBN" type="service_closure" id=".service_locator.B2ZeSAD"/>
+        <argument key="App\Controller\LibraryController::getLibraryBooks" type="service_closure" id=".service_locator.B2ZeSAD"/>
         <argument key="App\Controller\LibraryController::handleBookForm" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\LibraryController::index" type="service_closure" id=".service_locator.B2ZeSAD"/>
         <argument key="App\Controller\LibraryController::read" type="service_closure" id=".service_locator.VH_0EHf"/>
@@ -6395,6 +6397,8 @@
         <argument key="App\Controller\HomeController:fox" type="service_closure" id=".service_locator.eAcXx9a"/>
         <argument key="App\Controller\LibraryController:deleteBookById" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\LibraryController:editBook" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\LibraryController:getBookByISBN" type="service_closure" id=".service_locator.B2ZeSAD"/>
+        <argument key="App\Controller\LibraryController:getLibraryBooks" type="service_closure" id=".service_locator.B2ZeSAD"/>
         <argument key="App\Controller\LibraryController:handleBookForm" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\LibraryController:index" type="service_closure" id=".service_locator.B2ZeSAD"/>
         <argument key="App\Controller\LibraryController:read" type="service_closure" id=".service_locator.VH_0EHf"/>
@@ -7211,12 +7215,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.p3qB4wz"/>
+      <argument type="service" id=".service_locator.P9nnyRT"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.p3qB4wz"/>
+      <argument type="service" id=".service_locator.P9nnyRT"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8159,7 +8163,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.p3qB4wz"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.P9nnyRT"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -8181,7 +8185,7 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~HVzOobD"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.twYb.dx" alias=".service_locator.p3qB4wz"/>
+    <service id=".service_locator.qZW7XHX" alias=".service_locator.P9nnyRT"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.Za9MpXe" alias=".service_locator.y4dplYt"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>

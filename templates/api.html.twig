@@ -38,6 +38,16 @@
                 <td><a>Show scores of game.</a></td>
                 <td><a>GET</a></td>
             </tr>
+            <tr>
+                <td><a href="{{ path('api_library')}}" class="route-link">/public/api/library</a></td>
+                <td><a>Show books in library.</a></td>
+                <td><a>GET</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{ path('api_library_book', {'isbn': 3}) }}" class="route-link">/public/api/library/book/3</a></td>
+                <td><a>Show book in library.</a></td>
+                <td><a>GET</a></td>
+            </tr>
         </table>
     </div>
 </body>

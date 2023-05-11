@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\BookRepository;
 use App\Entity\Book;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -102,6 +103,50 @@ class LibraryController extends AbstractController
 
         return $this->render('library/edit.html.twig', [
             'book' => $book,
+        ]);
+    }
+
+    #[Route('/api/library/books', name: 'api_library', methods: ['GET'])]
+    public function getLibraryBooks(BookRepository $bookRepository): JsonResponse
+    {
+        $books = $bookRepository->findAll();
+    
+        // Transform the books into an array
+        $bookArray = [];
+        foreach ($books as $book) {
+            $bookArray[] = [
+                'id' => $book->getId(),
+                'name' => $book->getName(),
+                'title' => $book->getTitle(),
+                'isbn' => $book->getIsbn(),
+                'image' => $book->getImage(),
+            ];
+        }
+    
+        return $this->json([
+            'books' => $bookArray
+        ], 200, [], [
+            'json_encode_options' => JSON_PRETTY_PRINT
+        ]);
+    }   
+    
+    #[Route('/api/library/book/{isbn}', name: 'api_library_book', methods: ['GET'])]
+    public function getBookByISBN(string $isbn, BookRepository $bookRepository): JsonResponse
+    {
+        $book = $bookRepository->findOneBy(['isbn' => $isbn]);
+
+        $bookData = [
+            'id' => $book->getId(),
+            'name' => $book->getName(),
+            'title' => $book->getTitle(),
+            'isbn' => $book->getIsbn(),
+            'image' => $book->getImage(),
+        ];
+
+        return $this->json([
+            'book' => $bookData
+        ], 200, [], [
+            'json_encode_options' => JSON_PRETTY_PRINT
         ]);
     }
 }

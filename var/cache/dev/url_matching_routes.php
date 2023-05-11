@@ -39,6 +39,7 @@ return [
         '/library' => [[['_route' => 'library', '_controller' => 'App\\Controller\\LibraryController::index'], null, null, null, false, false, null]],
         '/library/create' => [[['_route' => 'book_create', '_controller' => 'App\\Controller\\LibraryController::createBook'], null, null, null, false, false, null]],
         '/book/submit' => [[['_route' => 'book_submit', '_controller' => 'App\\Controller\\LibraryController::handleBookForm'], null, ['POST' => 0], null, false, false, null]],
+        '/api/library/books' => [[['_route' => 'api_library', '_controller' => 'App\\Controller\\LibraryController::getLibraryBooks'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -58,11 +59,14 @@ return [
                     .')'
                 .')'
                 .'|/card/deck/draw/(\\d+)(*:190)'
-                .'|/api/deck/draw/(\\d+)(*:218)'
-                .'|/read/([^/]++)(*:240)'
+                .'|/api/(?'
+                    .'|deck/draw/(\\d+)(*:221)'
+                    .'|library/book/([^/]++)(*:250)'
+                .')'
+                .'|/read/([^/]++)(*:273)'
                 .'|/book/(?'
-                    .'|delete/([^/]++)(*:272)'
-                    .'|edit/([^/]++)(*:293)'
+                    .'|delete/([^/]++)(*:305)'
+                    .'|edit/([^/]++)(*:326)'
                 .')'
             .')/?$}sDu',
     ],
@@ -75,10 +79,11 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         190 => [[['_route' => 'deck_draw_multiple', '_controller' => 'App\\Controller\\CardsController::drawMultiple'], ['num'], null, null, false, true, null]],
-        218 => [[['_route' => 'api_draw_multiple', '_controller' => 'App\\Controller\\CardsController::apiDrawMultiple'], ['num'], ['GET' => 0], null, false, true, null]],
-        240 => [[['_route' => 'read', '_controller' => 'App\\Controller\\LibraryController::read'], ['id'], null, null, false, true, null]],
-        272 => [[['_route' => 'book_delete_by_id', '_controller' => 'App\\Controller\\LibraryController::deleteBookById'], ['id'], null, null, false, true, null]],
-        293 => [
+        221 => [[['_route' => 'api_draw_multiple', '_controller' => 'App\\Controller\\CardsController::apiDrawMultiple'], ['num'], ['GET' => 0], null, false, true, null]],
+        250 => [[['_route' => 'api_library_book', '_controller' => 'App\\Controller\\LibraryController::getBookByISBN'], ['isbn'], ['GET' => 0], null, false, true, null]],
+        273 => [[['_route' => 'read', '_controller' => 'App\\Controller\\LibraryController::read'], ['id'], null, null, false, true, null]],
+        305 => [[['_route' => 'book_delete_by_id', '_controller' => 'App\\Controller\\LibraryController::deleteBookById'], ['id'], null, null, false, true, null]],
+        326 => [
             [['_route' => 'book_edit_by_id', '_controller' => 'App\\Controller\\LibraryController::editBook'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

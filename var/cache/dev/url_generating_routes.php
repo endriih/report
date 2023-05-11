@@ -46,4 +46,6 @@ return [
     'read' => [['id'], ['_controller' => 'App\\Controller\\LibraryController::read'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/read']], [], [], []],
     'book_delete_by_id' => [['id'], ['_controller' => 'App\\Controller\\LibraryController::deleteBookById'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/book/delete']], [], [], []],
     'book_edit_by_id' => [['id'], ['_controller' => 'App\\Controller\\LibraryController::editBook'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/book/edit']], [], [], []],
+    'api_library' => [[], ['_controller' => 'App\\Controller\\LibraryController::getLibraryBooks'], [], [['text', '/api/library/books']], [], [], []],
+    'api_library_book' => [['isbn'], ['_controller' => 'App\\Controller\\LibraryController::getBookByISBN'], [], [['variable', '/', '[^/]++', 'isbn', true], ['text', '/api/library/book']], [], [], []],
 ];
