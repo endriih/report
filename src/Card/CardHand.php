@@ -6,11 +6,22 @@ use App\Card\DeckOfCards;
 
 /**
  * Klass för handen som utgörs av ett flertal kort.
-*/
+ */
 class CardHand
-{
+{   
+    /**
+     * @var CardGraphic[]
+     */
     private array $cards;
+
+    /**
+     * @var CardGraphic[]
+     */
     private array $initialCards;
+
+    /**
+     * @var CardGraphic[]
+     */
     private array $hand;
 
     public function __construct(DeckOfCards $deck)
@@ -23,7 +34,9 @@ class CardHand
 
     /**
      * Tar fram kortleken (52 kort).
-    */
+     *
+     * @return CardGraphic[]
+     */
     public function getCards(): array
     {
         return $this->cards;
@@ -31,10 +44,13 @@ class CardHand
 
     /**
      * Plockar ett kort och utesluter det dragna kortet från kortleken.
-    */
+     *
+     * @return CardGraphic
+     * @throws \Exception
+     */
     public function draw(): CardGraphic
     {
-        if (count($this->cards) == 0) {
+        if (count($this->cards) === 0) {
             throw new \Exception("The deck is empty.");
         }
 
@@ -49,7 +65,9 @@ class CardHand
 
     /**
      * Tar fram antal kort i kortleken.
-    */
+     *
+     * @return int
+     */
     public function getAmount(): int
     {
         return count($this->cards);
@@ -57,7 +75,9 @@ class CardHand
 
     /**
      * Lägger till kort i handen.
-    */
+     *
+     * @param CardGraphic $card
+     */
     public function addCard(CardGraphic $card): void
     {
         $this->hand[] = $card;
@@ -66,7 +86,9 @@ class CardHand
 
     /**
      * Returnerar en lista av din hand.
-    */
+     *
+     * @return CardGraphic[]
+     */
     public function getHand(): array
     {
         return $this->hand;
@@ -74,7 +96,9 @@ class CardHand
 
     /**
      * Returnera en lista av bildlänkarna till korten i handen.
-    */
+     *
+     * @return string[]
+     */
     public function getCardGraphics(): array
     {
         $cardGraphics = [];
@@ -86,7 +110,7 @@ class CardHand
 
     /**
      * Återställer kortleken till dess ursprungliga tillstånd.
-    */
+     */
     public function reset(): void
     {
         $this->cards = $this->initialCards;
@@ -94,7 +118,9 @@ class CardHand
 
     /**
      * Returnerar det totala värdet för handen.
-    */
+     *
+     * @return int
+     */
     public function getTotalValue(): int
     {
         $total = 0;
@@ -103,7 +129,7 @@ class CardHand
         foreach ($this->hand as $card) {
             $value = $card->getRank();
 
-            if ($value == 1) {
+            if ($value === 1) {
                 $aces++;
                 $total += 11;
             }

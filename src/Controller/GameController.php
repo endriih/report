@@ -25,6 +25,7 @@ class GameController extends AbstractController
             $session->set('game', $game);
         }
 
+        /** @var Game $game */
         $game = $session->get('game');
 
         $cards = $game->getDrawnCards();
@@ -41,6 +42,7 @@ class GameController extends AbstractController
     #[Route('/game/reset', name: 'reset')]
     public function resetGame(SessionInterface $session): RedirectResponse
     {
+        /** @var Game $game */
         $game = $session->get('game');
         $game->reset();
         $session->set('game', $game);
@@ -51,6 +53,7 @@ class GameController extends AbstractController
     #[Route('/game/draw', name: 'draw')]
     public function drawCard(SessionInterface $session): RedirectResponse
     {
+        /** @var Game $game */
         $game = $session->get('game');
         $drawnCards = $game->drawCard();
 
@@ -64,6 +67,7 @@ class GameController extends AbstractController
     #[Route('/game/stop', name: 'stop')]
     public function stopGame(SessionInterface $session): RedirectResponse
     {
+        /** @var Game $game */
         $game = $session->get('game');
         $result = $game->stop();
 
@@ -83,6 +87,7 @@ class GameController extends AbstractController
     #[Route('/api/game', name: 'api_game', methods: ['GET'])]
     public function apiDrawMultiple(SessionInterface $session): Response
     {
+        /** @var Game $game */
         $game = $session->get('game');
 
         return $this->json([

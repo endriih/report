@@ -7,18 +7,25 @@ use App\Card\Card;
 
 /**
  * Klass för kortleken.
-*/
+ */
 class DeckOfCards
 {
+    /**
+     * @var Card[]
+     */
     private array $cards;
+
+    /**
+     * @var Card[]
+     */
     private array $initialCards;
 
     public function __construct()
     {
         $this->initialCards = [];
-        $this->cards = array();
-        $suits = array('hearts', 'diamonds', 'clubs', 'spades');
-        $ranks = array('01','02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13');
+        $this->cards = [];
+        $suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+        $ranks = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13'];
 
         foreach ($suits as $suit) {
             foreach ($ranks as $rank) {
@@ -31,8 +38,10 @@ class DeckOfCards
 
     /**
      * Returnerar en lista på de ursprungliga korten.
-    */
-    public function getInitialCards()
+     *
+     * @return CardGraphic[]
+     */
+    public function getInitialCards(): array
     {
         $cards = [];
         foreach ($this->initialCards as $card) {
@@ -44,7 +53,9 @@ class DeckOfCards
 
     /**
      * Plockar ut ett kort och uppdaterar antalet kort i kortleken.
-    */
+     *
+     * @return Card
+     */
     public function draw(): Card
     {
         if (empty($this->cards)) {
@@ -60,7 +71,9 @@ class DeckOfCards
 
     /**
      * Returnerar en lista med korten.
-    */
+     *
+     * @return CardGraphic[]
+     */
     public function getCards(): array
     {
         $cards = [];
@@ -73,7 +86,9 @@ class DeckOfCards
 
     /**
      * Blandar kortleken.
-    */
+     *
+     * @return Card[]
+     */
     public function shuffle(): array
     {
         shuffle($this->cards);
@@ -82,7 +97,7 @@ class DeckOfCards
 
     /**
      * Återställer kortleken till dess ursprungliga tillstånd.
-    */
+     */
     public function reset(): void
     {
         $this->cards = $this->initialCards;
@@ -90,7 +105,9 @@ class DeckOfCards
 
     /**
      * Returnerar en lista av sorterade kort.
-    */
+     *
+     * @return Card[]
+     */
     public function getSortedList(): array
     {
         $cards = $this->initialCards;

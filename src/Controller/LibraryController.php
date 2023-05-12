@@ -41,10 +41,10 @@ class LibraryController extends AbstractController
         $image = (string) $request->request->get('image');        
 
         $book = new Book();
-        $book->setName($name);
-        $book->setTitle($title);
+        $book->setName((string) $name);
+        $book->setTitle((string) $title);
         $book->setIsbn($isbn);
-        $book->setImage($image);
+        $book->setImage((string) $image);
 
         $entityManager->persist($book);
         $entityManager->flush();
@@ -91,10 +91,10 @@ class LibraryController extends AbstractController
         }
 
         if ($request->getMethod() === 'POST') {
-            $book->setName($request->request->get('name'));
-            $book->setTitle($request->request->get('title'));
-            $book->setIsbn($request->request->get('isbn'));
-            $book->setImage($request->request->get('image'));
+            $book->setName((string) $request->request->get('name'));
+            $book->setTitle((string) $request->request->get('title'));
+            $book->setIsbn((int) $request->request->get('isbn'));
+            $book->setImage((string) $request->request->get('image'));
 
             $entityManager->flush();
 
@@ -133,6 +133,10 @@ class LibraryController extends AbstractController
     public function getBookByISBN(string $isbn, BookRepository $bookRepository): JsonResponse
     {
         $book = $bookRepository->findOneBy(['isbn' => $isbn]);
+
+        if (!$book) {
+            return $this->json(['error' => 'Book not found'], 404);
+        }
 
         $bookData = [
             'id' => $book->getId(),
