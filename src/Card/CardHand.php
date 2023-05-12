@@ -3,6 +3,7 @@
 namespace App\Card;
 
 use App\Card\DeckOfCards;
+use Exception;
 
 /**
  * Klass för handen som utgörs av ett flertal kort.
@@ -46,12 +47,12 @@ class CardHand
      * Plockar ett kort och utesluter det dragna kortet från kortleken.
      *
      * @return CardGraphic
-     * @throws \Exception
+     * @throws Exception
      */
     public function draw(): CardGraphic
     {
         if (count($this->cards) === 0) {
-            throw new \Exception("The deck is empty.");
+            throw new Exception("The deck is empty.");
         }
 
         $index = array_rand($this->cards);

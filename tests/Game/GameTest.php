@@ -8,14 +8,14 @@ use App\Card\CardGraphic;
 
 class GameTest extends TestCase
 {
-    private $game;
+    private Game $game;
 
     protected function setUp(): void
     {
         $this->game = new Game();
     }
 
-    public function testDrawCard()
+    public function testDrawCard(): void
     {
         $result = $this->game->drawCard();
 
@@ -25,7 +25,7 @@ class GameTest extends TestCase
         $this->assertGreaterThanOrEqual(0, count($this->game->getDrawnCards()));
     }
 
-    public function testStop()
+    public function testStop(): void
     {
         $result = $this->game->stop();
 
@@ -39,7 +39,7 @@ class GameTest extends TestCase
         $this->assertContains($result['type'], ['notice', 'warning']);
     }
 
-    public function testEqualScore()
+    public function testEqualScore(): void
     {
         $this->game->getPlayerHand()->addCard(new CardGraphic('hearts', '10'));
         $this->game->getPlayerHand()->addCard(new CardGraphic('hearts', '10'));
@@ -51,7 +51,7 @@ class GameTest extends TestCase
         $this->assertEquals('warning', $result['type']);
     }
 
-    public function testStopPlayerWins()
+    public function testStopPlayerWins(): void
     {
         $this->game->getPlayerHand()->addCard(new CardGraphic('hearts', '10'));
         $this->game->getPlayerHand()->addCard(new CardGraphic('hearts', '9'));
@@ -63,7 +63,7 @@ class GameTest extends TestCase
         $this->assertEquals('notice', $result['type']);
     }
 
-    public function testBankHandOver21() 
+    public function testBankHandOver21(): void
     {   
         $this->game->getPlayerHand()->addCard(new CardGraphic('hearts', '10'));
         $this->game->getPlayerHand()->addCard(new CardGraphic('hearts', '9'));
@@ -76,21 +76,21 @@ class GameTest extends TestCase
         $this->assertEquals('notice', $result['type']);
     }
 
-    public function testGetPlayerHand()
+    public function testGetPlayerHand(): void
     {
         $hand = $this->game->getPlayerHand();
 
         $this->assertInstanceOf('App\Card\CardHand', $hand);
     }
 
-    public function testGetBankHand()
+    public function testGetBankHand(): void
     {
         $hand = $this->game->getBankHand();
 
         $this->assertInstanceOf('App\Card\CardHand', $hand);
     }
 
-    public function testGetDrawnCards()
+    public function testGetDrawnCards(): void
     {
         $cards = $this->game->getDrawnCards();
 
@@ -98,7 +98,7 @@ class GameTest extends TestCase
         $this->assertGreaterThanOrEqual(0, count($cards));
     }
 
-    public function testGetBankCards()
+    public function testGetBankCards(): void
     {
         $cards = $this->game->getBankCards();
 
@@ -106,21 +106,21 @@ class GameTest extends TestCase
         $this->assertGreaterThanOrEqual(0, count($cards));
     }
 
-    public function testGetPlayerScore()
+    public function testGetPlayerScore(): void
     {
         $score = $this->game->getPlayerScore();
 
         $this->assertIsInt($score);
     }
 
-    public function testGetBankScore()
+    public function testGetBankScore(): void
     {
         $score = $this->game->getBankScore();
         
         $this->assertIsInt($score);
     }
 
-    public function testReset()
+    public function testReset(): void
     {
         $this->game->drawCard();
         $this->game->stop();

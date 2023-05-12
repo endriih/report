@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class CardHandTest extends TestCase
 {
-    public function testDrawCard()
+    public function testDrawCard(): void
     {
         $deck = new DeckOfCards();
         $hand = new CardHand($deck);
@@ -22,7 +22,7 @@ class CardHandTest extends TestCase
         $this->assertEquals($card2->getSuit(), $hand->getHand()[1]->getSuit());
     }
 
-    public function testReset()
+    public function testReset(): void
     {
         $deck = new DeckOfCards();
         $hand = new CardHand($deck);
@@ -39,7 +39,7 @@ class CardHandTest extends TestCase
         $this->assertEquals($initialCards, $hand->getCards());
     }
 
-    public function testGetAmount()
+    public function testGetAmount(): void
     {
         $deck = new DeckOfCards();
         $hand = new CardHand($deck);
@@ -48,7 +48,7 @@ class CardHandTest extends TestCase
         $this->assertEquals(51, $hand->getAmount());
     }
 
-    public function testDrawFromEmptyDeckThrowsException()
+    public function testDrawFromEmptyDeckThrowsException(): void
     {
         $this->expectException(\Exception::class);
 
@@ -61,7 +61,7 @@ class CardHandTest extends TestCase
     }
 
 
-    public function testTotalValue()
+    public function testTotalValue(): void
     {
         $deck = new DeckOfCards();
         $hand = new CardHand($deck);

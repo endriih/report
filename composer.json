@@ -107,6 +107,7 @@
             "@clean",
             "rm -rf vendor composer.lock"
         ],
+        "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json",
         "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html docs/coverage",
         "phpdoc": "tools/phpdoc/phpdoc",
         "lint": [
