@@ -105,7 +105,7 @@ class LibraryController extends AbstractController
             'book' => $book,
         ]);
     }
-
+    
     #[Route('/api/library/books', name: 'api_library', methods: ['GET'])]
     public function getLibraryBooks(BookRepository $bookRepository): JsonResponse
     {
@@ -152,4 +152,4 @@ class LibraryController extends AbstractController
             'json_encode_options' => JSON_PRETTY_PRINT
         ]);
     }
-}
+}   

@@ -114,13 +114,12 @@ class CardsController extends AbstractController
         return $this->redirectToRoute('deck_draw_multiple', ['num' => $numCards]);
     }
 
-
-
     #[Route('/api/deck', name: 'api_deck', methods: ['GET'])]
     public function apiDeck(): JsonResponse
     {
         $deck = new DeckOfCards();
         $cards = $deck->getSortedList();
+
         return $this->json([
             'cards' => $cards,
         ], 200, [], [
@@ -172,7 +171,7 @@ class CardsController extends AbstractController
     }
 
     #[Route('/api/deck/draw/{num<\d+>}', name: 'api_draw_multiple', methods: ['GET'])]
-    public function apiDrawMultiple(SessionInterface $session, int $num): Response
+    public function apiDrawMultiple(SessionInterface $session, int $num): JsonResponse
     {
         $deck = $session->get('apideck');
         if (!$deck instanceof DeckOfCards) {
@@ -186,10 +185,12 @@ class CardsController extends AbstractController
             $hand = new CardHand($deck);
             $session->set('apihand', $hand);
         }
+
         for ($i = 0; $i < $num; $i++) {
             $card = $hand->draw();
             $cards[] = $card;
         }
+
         $remainingCards = $hand->getAmount();
 
         return $this->json([

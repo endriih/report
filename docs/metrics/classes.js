@@ -478,7 +478,7 @@ var classes = [
             "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "App\\Card\\DeckOfCards",
             "App\\Card\\CardHand",
-            "Symfony\\Component\\HttpFoundation\\Response",
+            "Symfony\\Component\\HttpFoundation\\JsonResponse",
             "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "App\\Card\\DeckOfCards",
             "App\\Card\\CardHand"
