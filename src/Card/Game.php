@@ -30,20 +30,23 @@ class Game
     }
 
     /**
-     * Drar kort från kortleken och hamnar i spelarhanden.
-     * @return string[]
-     */
+    * Draw a card from the deck and add it to the player's hand.
+    * @return array
+    */
     public function drawCard(): array
     {   
         $result = [];
         $result['message'] = 'Spelaren förlorar!';
         $result['type'] = 'warning';
+
         if ($this->playerHand->getTotalValue() < 21) {
             $card = $this->playerHand->draw();
             $this->drawnCards[] = $card->getImage();
         }
-        return $this->drawnCards;
+
+        return $result;
     }
+
 
 
     /**

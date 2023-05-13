@@ -67,8 +67,8 @@ class CardHandTest extends TestCase
         $hand = new CardHand($deck);
 
         $card1 = new CardGraphic('hearts', '10');
-        $card2 = new CardGraphic('hearts', '10');
-        $card3 = new CardGraphic('hearts', '1');
+        $card2 = new CardGraphic('hearts', '9');
+        $card3 = new CardGraphic('hearts', '2');
         $hand->addCard($card1);
         $hand->addCard($card2);
         $hand->addCard($card3);

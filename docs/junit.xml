@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="24" assertions="53" errors="0" warnings="0" failures="0" skipped="0" time="0.050411">
+    <testsuite name="Project Test Suite" tests="24" assertions="53" errors="0" warnings="0" failures="0" skipped="0" time="0.050411">
+      <testsuite name="Tests\App\Card\DeckOfCardsTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardDeckTest.php" tests="4" assertions="6" errors="0" warnings="0" failures="0" skipped="0" time="0.027195">
+        <testcase name="testDrawRemovesCardFromDeck" class="Tests\App\Card\DeckOfCardsTest" classname="Tests.App.Card.DeckOfCardsTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardDeckTest.php" line="10" assertions="1" time="0.008279"/>
+        <testcase name="testGetSortedListReturnsSortedDeck" class="Tests\App\Card\DeckOfCardsTest" classname="Tests.App.Card.DeckOfCardsTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardDeckTest.php" line="20" assertions="2" time="0.004650"/>
+        <testcase name="testReset" class="Tests\App\Card\DeckOfCardsTest" classname="Tests.App.Card.DeckOfCardsTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardDeckTest.php" line="29" assertions="1" time="0.007063"/>
+        <testcase name="testAutomaticReset" class="Tests\App\Card\DeckOfCardsTest" classname="Tests.App.Card.DeckOfCardsTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardDeckTest.php" line="42" assertions="2" time="0.007202"/>
+      </testsuite>
+      <testsuite name="CardHandTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardHandTest.php" tests="5" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.005891">
+        <testcase name="testDrawCard" class="CardHandTest" classname="CardHandTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardHandTest.php" line="10" assertions="6" time="0.001918"/>
+        <testcase name="testReset" class="CardHandTest" classname="CardHandTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardHandTest.php" line="25" assertions="1" time="0.000807"/>
+        <testcase name="testGetAmount" class="CardHandTest" classname="CardHandTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardHandTest.php" line="42" assertions="1" time="0.000749"/>
+        <testcase name="testDrawFromEmptyDeckThrowsException" class="CardHandTest" classname="CardHandTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardHandTest.php" line="51" assertions="1" time="0.001658"/>
+        <testcase name="testTotalValue" class="CardHandTest" classname="CardHandTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardHandTest.php" line="64" assertions="1" time="0.000760"/>
+      </testsuite>
+      <testsuite name="Tests\App\Card\CardTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.000978">
+        <testcase name="testGetSuitReturnsCorrectValue" class="Tests\App\Card\CardTest" classname="Tests.App.Card.CardTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" line="11" assertions="1" time="0.000293"/>
+        <testcase name="testGetRankReturnsCorrectValue" class="Tests\App\Card\CardTest" classname="Tests.App.Card.CardTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" line="18" assertions="1" time="0.000312"/>
+        <testcase name="testGetImage" class="Tests\App\Card\CardTest" classname="Tests.App.Card.CardTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Card/CardTest.php" line="25" assertions="1" time="0.000373"/>
+      </testsuite>
+      <testsuite name="Tests\App\Card\GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" tests="12" assertions="34" errors="0" warnings="0" failures="0" skipped="0" time="0.016347">
+        <testcase name="testDrawCard" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="18" assertions="5" time="0.003886"/>
+        <testcase name="testStop" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="28" assertions="9" time="0.001379"/>
+        <testcase name="testEqualScore" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="42" assertions="2" time="0.001070"/>
+        <testcase name="testStopPlayerWins" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="54" assertions="2" time="0.001020"/>
+        <testcase name="testBankHandOver21" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="66" assertions="2" time="0.001004"/>
+        <testcase name="testGetPlayerHand" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="79" assertions="1" time="0.001394"/>
+        <testcase name="testGetBankHand" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="86" assertions="1" time="0.000937"/>
+        <testcase name="testGetDrawnCards" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="93" assertions="3" time="0.000904"/>
+        <testcase name="testGetBankCards" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="101" assertions="3" time="0.000891"/>
+        <testcase name="testGetPlayerScore" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="109" assertions="1" time="0.000876"/>
+        <testcase name="testGetBankScore" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="116" assertions="1" time="0.000880"/>
+        <testcase name="testReset" class="Tests\App\Card\GameTest" classname="Tests.App.Card.GameTest" file="/home/endri/dbwebb-kurser/mvc/me/report/tests/Game/GameTest.php" line="123" assertions="4" time="0.002107"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

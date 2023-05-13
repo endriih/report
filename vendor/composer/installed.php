@@ -3,7 +3,7 @@
         'name' => 'endri/report',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '786eb6c68f5658b9a9b209f82a2083929eaa2813',
+        'reference' => '7373f64ceaa9bd01c6508dba6499c01816a6fc6c',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -166,7 +166,7 @@
         'endri/report' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '786eb6c68f5658b9a9b209f82a2083929eaa2813',
+            'reference' => '7373f64ceaa9bd01c6508dba6499c01816a6fc6c',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
