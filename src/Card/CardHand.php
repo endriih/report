@@ -118,35 +118,33 @@ class CardHand
     }
 
     /**
-     * Returnerar det totala värdet för handen.
-     *
-     * @return int
-     */
+    * Returnerar totala värdet för handen.
+    *
+    * @return int Det totala värdet av handen.
+    */
     public function getTotalValue(): int
     {
-        $total = 0;
-        $aces = 0;
+        $totalValue = 0;
+        $aceCount = 0;
 
         foreach ($this->hand as $card) {
-            $value = $card->getRank();
+            $rank = $card->getRank();
 
-            if ($value === 1) {
-                $aces++;
-                $total += 11;
-            }
-            if ($value >= 10) {
-                $total += 10;
-            }
-            if ($value > 1 && $value < 10) {
-                $total += $value;
+            if ($rank === 1) {
+                $aceCount++;
+                $totalValue += 11;
+            } else if ($rank >= 10) {
+                $totalValue += 10;
+            } else {
+                $totalValue += $rank;
             }
         }
 
-        while ($aces > 0 && $total > 21) {
-            $total -= 10;
-            $aces--;
+        while ($aceCount > 0 && $totalValue > 21) {
+            $totalValue -= 10;
+            $aceCount--;
         }
 
-        return $total;
+        return $totalValue;
     }
 }
