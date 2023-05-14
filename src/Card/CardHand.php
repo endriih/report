@@ -65,6 +65,22 @@ class CardHand
     }
 
     /**
+     * Drar x antal kort.
+     *
+     * @return array
+     */
+
+    public function drawMultiple(int $num): array
+    {
+        $cards = [];
+        for ($i = 0; $i < $num; $i++) {
+            $card = $this->draw();
+            $cards[] = $card->getImage();
+        }
+        return $cards;
+    }
+
+    /**
      * Tar fram antal kort i kortleken.
      *
      * @return int
