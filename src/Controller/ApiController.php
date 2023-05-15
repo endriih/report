@@ -57,8 +57,6 @@ class ApiController extends AbstractController
         $cardsGraphic = $hand->drawMultiple($num);
         $remainingCards = $hand->getAmount();
 
-        $remainingCards = $hand->getAmount();
-
         return $this->json([
             'cards' => $cardsGraphic,
             'remainingcards' => $remainingCards
