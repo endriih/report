@@ -7,12 +7,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\BookRepository;
 use App\Entity\Book;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LibraryController extends AbstractController
-{
+{   
+    //Route som tar dig till bibliotekets förstasida
     #[Route('/library', name: 'library')]
     public function index(BookRepository $bookRepository): Response
     {
@@ -23,13 +23,14 @@ class LibraryController extends AbstractController
         ]);
     }
 
-
+    //Route som tar dig till en form för att skapa en bok
     #[Route('/library/create', name: 'book_create')]
     public function createBook(): Response
     {
         return $this->render('library/create-form.html.twig');
     }
 
+    //Route som hanterar submit
     #[Route('/book/submit', name: 'book_submit', methods: ['POST'])]
     public function handleBookForm(Request $request, ManagerRegistry $doctrine): Response
     {
@@ -54,6 +55,7 @@ class LibraryController extends AbstractController
         return $this->redirectToRoute('read', ['id' => $bookId]);
     }
 
+    //Route för att visa en bok baserad på id
     #[Route('/read/{id}', name: 'read')]
     public function read(Book $book): Response
     {
@@ -62,6 +64,7 @@ class LibraryController extends AbstractController
         ]);
     }
 
+    //Route för att radera en bok baserad på id
     #[Route('/book/delete/{id}', name: 'book_delete_by_id')]
     public function deleteBookById(ManagerRegistry $doctrine, int $id): Response
     {
@@ -80,6 +83,7 @@ class LibraryController extends AbstractController
         return $this->redirectToRoute('library');
     }
 
+    //Route för att redigera en bok baserad på id
     #[Route('/book/edit/{id}', name: 'book_edit_by_id')]
     public function editBook(Request $request, ManagerRegistry $doctrine, int $id): Response
     {
@@ -103,53 +107,6 @@ class LibraryController extends AbstractController
 
         return $this->render('library/edit.html.twig', [
             'book' => $book,
-        ]);
-    }
-    
-    #[Route('/api/library/books', name: 'api_library', methods: ['GET'])]
-    public function getLibraryBooks(BookRepository $bookRepository): JsonResponse
-    {
-        $books = $bookRepository->findAll();
-
-        $bookArray = [];
-        foreach ($books as $book) {
-            $bookArray[] = [
-                'id' => $book->getId(),
-                'name' => $book->getName(),
-                'title' => $book->getTitle(),
-                'isbn' => $book->getIsbn(),
-                'image' => $book->getImage(),
-            ];
-        }
-
-        return $this->json([
-            'books' => $bookArray
-        ], 200, [], [
-            'json_encode_options' => JSON_PRETTY_PRINT
-        ]);
-    }
-
-    #[Route('/api/library/book/{isbn}', name: 'api_library_book', methods: ['GET'])]
-    public function getBookByISBN(string $isbn, BookRepository $bookRepository): JsonResponse
-    {
-        $book = $bookRepository->findOneBy(['isbn' => $isbn]);
-
-        if (!$book) {
-            return $this->json(['error' => 'Book not found'], 404);
-        }
-
-        $bookData = [
-            'id' => $book->getId(),
-            'name' => $book->getName(),
-            'title' => $book->getTitle(),
-            'isbn' => $book->getIsbn(),
-            'image' => $book->getImage(),
-        ];
-
-        return $this->json([
-            'book' => $bookData
-        ], 200, [], [
-            'json_encode_options' => JSON_PRETTY_PRINT
         ]);
     }
 }   

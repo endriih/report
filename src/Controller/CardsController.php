@@ -12,12 +12,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CardsController extends AbstractController
 {
+    //Renderar front-sidan av card
     #[Route('/card', name: 'card')]
     public function card(): Response
     {
         return $this->render('cards/card_home.html.twig');
     }
 
+    //Renderar ett deck av kort
     #[Route('/card/deck', name: 'deck')]
     public function deck(): Response
     {
@@ -29,6 +31,7 @@ class CardsController extends AbstractController
         ]);
     }
 
+    //Renderar ett blandat deck av kort
     #[Route('/card/deck/shuffle', name: 'deck_shuffle')]
     public function shuffleDeck(SessionInterface $session): Response
     {
@@ -45,6 +48,7 @@ class CardsController extends AbstractController
         ]);
     }
 
+    //Drar ett kort
     #[Route('/card/deck/draw', name: 'deck_draw')]
     public function draw(SessionInterface $session): Response
     {
@@ -71,6 +75,7 @@ class CardsController extends AbstractController
         ]);
     }
 
+    //Drar x antal kort
     #[Route('/card/deck/draw/{num<\d+>}', name: 'deck_draw_multiple')]
     public function drawMultiple(SessionInterface $session, int $num): Response
     {
@@ -95,12 +100,14 @@ class CardsController extends AbstractController
         ]);
     }
 
+    //Renderar sidan för att dra kort
     #[Route('/card/deck/draw_start', name: 'draw_start')]
     public function drawStart(): Response
     {
         return $this->render('cards/card_draw_start.html.twig');
     }
 
+    //Bearbetar inputen och drar x antal kort
     #[Route('/card/deck/draw_callback', name: 'draw_callback', methods: ['POST'])]
     public function drawCallback(Request $request): Response
     {

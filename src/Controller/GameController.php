@@ -83,18 +83,4 @@ class GameController extends AbstractController
     {
         return $this->render('game/doc.html.twig');
     }
-
-    #[Route('/api/game', name: 'api_game', methods: ['GET'])]
-    public function apiDrawMultiple(SessionInterface $session): Response
-    {
-        /** @var Game $game */
-        $game = $session->get('game');
-
-        return $this->json([
-            'playerScore' => $game->getPlayerScore(),
-            'bankScore' => $game->getBankScore(),
-        ], 200, [], [
-            'json_encode_options' => JSON_PRETTY_PRINT
-        ]);
-    }
 }
