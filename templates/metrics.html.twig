@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="metrics-c">
+        <div class="met-desc">
+            <h1>Codestyle</h1>
+            <p>Kodstil handlar om att skriva bra formaterad kod som följer de olika konventionerna och riktlinjerna som används för att kunna skapa en enhetlig och läsbar kodbas. Exempelvis ingår indentering i kodstilen där programmeraren förutsätts ha en specifik indentering för sina kodrader som bidrar till läsbarheten. Exempelvis använder vi oss av csfix (PHP-CS-FIXER) som korrigerar vår kod utifrån den generella kodstilen.</p>
+            <h1>Coverage</h1>
+            <p>Coverage handlar om testfall och hur mycket av koden som täcks av testfallen. Coverage berättar inget om testerna som exekveras utan är bara en indikator (oftast en procentuell indikator) över hur mycket av en projekts kodrader som testas.</p>
+            <h1>Complexity</h1>
+            <p>
+Komplexitet i kod avser graden svårighet som finns i koden, exempelvis hos funktioner. Komplexitet kan exempelvis handla om maintainability men också cyclomatic complexity som bedömer en metods beslutsvägar. En hög komplexitet, exempelvis ifall vi använder oss av en massa if-statements kan göra koden svår att förstå, felsöka och underhålla. I projektet varierar komplexiteten men förhåller sig till 1-13.
+</p>
+            <h1>Cohesion</h1>
+            <p>Cohesion beskriver hur relaterade funktioner är till varandra. Ifall en modul eller klass har en hög sammanhållning (låg cohesion) så innebär det att de relaterade metoderna är organiserade på ett sätt där de arbetar tätt för att uppnå samma mål.</p>
+            <h1>Coupling</h1>
+            <p>Coupling beskriver hur beroende olika delar av koden eller moduler är av varandra. Ifall komponenten eller modulen har en hög koppling innebär det att ändringar hos en del av koden kan påverka andra vilket gör koden mer benägen för buggar. Exempelvis reducerade jag couplingen hos moduler genom att flytta API routerna till en egen controller där rötterna nu enbart är beroende av API klassen.</p>
+            <h1>CRAP</h1>
+            <p>Crap som är en förkortning av “Change Risk Analasys and Predictions” handlar om hur koden bedöms utifrån komplexitet och kodtäckning. Ifall du har ett högt crap värde för din komponent eller modul ligger din kod till risk för buggar och liknande problem.</p>
+        <div>
+            <h1>Metrics</h1>
+            <p>Såsom metrics visualiserar det verkar CardsController ha högst komplexitet vilket också är en av förbättringarna jag vill åtgärda, försöka få ner värdet en bit så att den i alla fall inte överstiger 11.</p>
+            <img src="{{ asset('img/metrics-complexity.png') }}" alt="">
+            <p>Därpå analyserar jag även couplingen för att se om det finns något där att åtgärda. Jag märker att couplingen är hög bland kontrollerklasserna och kommer till slutsatsen att jag vill flytta API routerna till sin egna kontroller för att minska couplingen och komplexiteten.</p>
+            <img src="{{ asset('img/metrics-coupling.png') }}" alt="">
+            <h1>Scrutinizer</h1>
+            <p>Vid första ögonblicket var värdena jag fick tillbaka positiva, majoriteten var grön men jag ville så gärna få till det lilla sista för att nå ett kvalitetsindex av 10. Jag valde att kolla igenom scrutinizer för att leta fram vad det var som drog ner värdet. Det som drog ner värdet var CardHand:getTotalValue metoden som var komplex.</p>
+            <img src="{{ asset('img/scrutinizer-getvalue.png') }}" alt="">
+            <img src="{{ asset('img/scrutinizer.png') }}" alt="">
+            <h1>Förbättringar</h1>
+            <p class="met-change">Reducera komplexiteten hos CardsController<p>
+            <p>Utifrån analysens redovisning går det att klargöra att cardscontrollern verkar vara den mest komplexa klassen i systemet. Därför väljer jag att försöka reducera komplexiteten hos klassen för bättre underhållbarhet. För att åstadkomma detta har jag valt att granska kontroller klassen för att hitta ändringar som kan leda till minskad komplexitet. Jag valde att exempelvis flytta logik från kontroller klassen till handklassen istället, som att dra flera kort. Genom att flytta logiken till handklassen lyckas jag reducera komplexiteten med 1 enhet.</p>
+            <img src="{{ asset('img/metrics-cardcontroller.png') }}" alt="">
+            <img src="{{ asset('img/metrics-cardcontroller-updated.png') }}" alt="">
+            <p class="met-change">Flytta API routerna till egen controller för att minska coupling och komplexitet<p>
+            <p>För att ytterligare reducera komplexiteten hos kontrollerna men även Efferent coupling hos kontrollerna valde jag att lägga till en API kontroller som innehåller de olika API routerna. Genom att förflytta dessa API router från sina tidigare klasser till API klassen minskar jag efferenta couplingen genom att dessa API router nu bara beror sig på API kontrollern.</p>
+            <img src="{{ asset('img/scrutinizer-coupling.png') }}" alt="">
+            <img src="{{ asset('img/metrics-complexity-updated.png') }}" alt="">
+            <p class="met-change">Öka scrutinizers kvalitetsindex till 10<p>
+            <p>För att öka scrutinizers kvalitetsindex från 9.95 till 10 behövde jag åtgärda CardHands getTotalValue metod. Det jag fixade var att skriva mer koncisa kommentarer, använda mig av mer konkreta variabelnamn såsom totalValue istället för enbart total, sen till sist reducerade jag även komplexiteten genom att använda mig av else if & else statements istället för 3 separata if-statements. Genom detta så lyckades jag höja kvalitetsindexet från 9.95 till 10.</p>
+            <img src="{{ asset('img/scrutinizer-getvalue.png') }}" alt="">
+            <img src="{{ asset('img/scrutinizer-getvalue-updated.png') }}" alt="">
+            <img src="{{ asset('img/scrutinizer-update.png') }}" alt="">
+            <img class="badge" src="{{ asset('img/scrut-badge.png') }}" alt="">
+            <h1 style="margin:10px 0;">Diskussion</h1>
+            <p style="margin:10px 0;">Jag skulle nog definitivt anta att man aktivt kan jobba med kodkvalitet och “clean code” genom att exempelvis följa de förbättringar som nämns under den tidigare rubriken. Genom att exempelvis reducera komplexiteten hos klasserna, minska kopplingen mellan olika delar 
+av systemet kan man göra koden mer begriplig och underhållbar.
+</p>
+<p style="margin:10px 0;">Fördelarna kan ju vara att som tidigare nämnt göra koden med begriplig och hållbar, vilket därpå kan minska risken för buggar och problem i koden då enklare och mer strukturerad kod kan vara mindre benägen att innehålla fel.</p>
+<p style="margin:10px 0;">Nackdelar med att sträva efter “clean code” känner jag kan bli lite överdrivet, att man flyttar om logiken och ändrar strukturen på hela koden (som kan leda till nya buggar) bara för att nå ett specifikt kvalitetsindex. Jag känner att det kan leda till onödigt överarbete, dessutom är det viktigt att vara medveten om att verktyg som scrutinizer och phpmetrics funkar bäst som en värdefull vägledning över brister i din kod som går att åtgärda. De ska inte ersätta mänsklig bedömning.</p>
+        <div>
+    </div>
+{% endblock %}
