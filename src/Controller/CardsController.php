@@ -84,16 +84,16 @@ class CardsController extends AbstractController
             $deck = new DeckOfCards();
             $session->set('deck', $deck);
         }
-    
+
         $hand = $session->get('hand');
         if (!$hand instanceof CardHand) {
             $hand = new CardHand($deck);
             $session->set('hand', $hand);
         }
-    
+
         $cardsGraphic = $hand->drawMultiple($num);
         $remainingCards = $hand->getAmount();
-    
+
         return $this->render('cards/card_draw_multiple.html.twig', [
             'cardsGraphic' => $cardsGraphic,
             'remainingCards' => $remainingCards,

@@ -9,7 +9,7 @@ use Exception;
  * Klass för handen som utgörs av ett flertal kort.
  */
 class CardHand
-{   
+{
     /**
      * @var CardGraphic[]
      */
@@ -149,7 +149,7 @@ class CardHand
             if ($rank === 1) {
                 $aceCount++;
                 $totalValue += 11;
-            } else if ($rank >= 10) {
+            } elseif ($rank >= 10) {
                 $totalValue += 10;
             } else {
                 $totalValue += $rank;

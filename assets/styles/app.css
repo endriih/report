@@ -596,3 +596,12 @@ pre code {
 .met-desc h1 {
     margin: 10px 0;
 }
+
+.s-badge {
+    width: 120px !important;
+    height: 30px !important;
+}
+
+.badges {
+    display: flex;
+}

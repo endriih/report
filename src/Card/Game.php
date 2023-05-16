@@ -34,7 +34,7 @@ class Game
     * @return array
     */
     public function drawCard(): array
-    {   
+    {
         $result = [];
         $result['message'] = 'Spelaren förlorar!';
         $result['type'] = 'warning';

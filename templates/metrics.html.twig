@@ -27,6 +27,11 @@ Komplexitet i kod avser graden svårighet som finns i koden, exempelvis hos funk
             <p>Vid första ögonblicket var värdena jag fick tillbaka positiva, majoriteten var grön men jag ville så gärna få till det lilla sista för att nå ett kvalitetsindex av 10. Jag valde att kolla igenom scrutinizer för att leta fram vad det var som drog ner värdet. Det som drog ner värdet var CardHand:getTotalValue metoden som var komplex.</p>
             <img src="{{ asset('img/scrutinizer-getvalue.png') }}" alt="">
             <img src="{{ asset('img/scrutinizer.png') }}" alt="">
+            <div class="badges">
+                <a href="https://scrutinizer-ci.com/g/endriih/report/"><img class="s-badge" src="{{ asset('img/scrutinizer-index.png') }}" alt=""></a>
+                <a href="https://scrutinizer-ci.com/g/endriih/report/"><img class="s-badge" src="{{ asset('img/scrutinizer-coverage.png') }}" alt=""></a>
+                <a href="https://scrutinizer-ci.com/g/endriih/report/"><img class="s-badge"  src="{{ asset('img/scrutinizer-buld.png') }}" alt=""></a>
+            </div>
             <h1>Förbättringar</h1>
             <p class="met-change">Reducera komplexiteten hos CardsController<p>
             <p>Utifrån analysens redovisning går det att klargöra att cardscontrollern verkar vara den mest komplexa klassen i systemet. Därför väljer jag att försöka reducera komplexiteten hos klassen för bättre underhållbarhet. För att åstadkomma detta har jag valt att granska kontroller klassen för att hitta ändringar som kan leda till minskad komplexitet. Jag valde att exempelvis flytta logik från kontroller klassen till handklassen istället, som att dra flera kort. Genom att flytta logiken till handklassen lyckas jag reducera komplexiteten med 1 enhet.</p>
@@ -42,6 +47,11 @@ Komplexitet i kod avser graden svårighet som finns i koden, exempelvis hos funk
             <img src="{{ asset('img/scrutinizer-getvalue-updated.png') }}" alt="">
             <img src="{{ asset('img/scrutinizer-update.png') }}" alt="">
             <img class="badge" src="{{ asset('img/scrut-badge.png') }}" alt="">
+            <div class="badges">
+                <a href="https://scrutinizer-ci.com/g/endriih/report/"><img class="s-badge" src="{{ asset('img/scrutinizer-index.png') }}" alt=""></a>
+                <a href="https://scrutinizer-ci.com/g/endriih/report/"><img class="s-badge" src="{{ asset('img/scrutinizer-coverage.png') }}" alt=""></a>
+                <a href="https://scrutinizer-ci.com/g/endriih/report/"><img class="s-badge"  src="{{ asset('img/scrutinizer-buld.png') }}" alt=""></a>
+            </div>
             <h1 style="margin:10px 0;">Diskussion</h1>
             <p style="margin:10px 0;">Jag skulle nog definitivt anta att man aktivt kan jobba med kodkvalitet och “clean code” genom att exempelvis följa de förbättringar som nämns under den tidigare rubriken. Genom att exempelvis reducera komplexiteten hos klasserna, minska kopplingen mellan olika delar 
 av systemet kan man göra koden mer begriplig och underhållbar.

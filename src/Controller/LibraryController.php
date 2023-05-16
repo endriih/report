@@ -11,7 +11,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LibraryController extends AbstractController
-{   
+{
     //Route som tar dig till bibliotekets förstasida
     #[Route('/library', name: 'library')]
     public function index(BookRepository $bookRepository): Response
@@ -39,7 +39,7 @@ class LibraryController extends AbstractController
         $name = (string) $request->request->get('name');
         $title = (string) $request->request->get('title');
         $isbn = $request->request->getInt('isbn');
-        $image = (string) $request->request->get('image');        
+        $image = (string) $request->request->get('image');
 
         $book = new Book();
         $book->setName((string) $name);
@@ -109,4 +109,4 @@ class LibraryController extends AbstractController
             'book' => $book,
         ]);
     }
-}   
+}
