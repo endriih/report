@@ -337,6 +337,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Card\BlackJack" class="App\Card\BlackJack" autowire="true" autoconfigure="true"/>
     <service id="App\Card\Card" class="App\Card\Card" autowire="true" autoconfigure="true"/>
     <service id="App\Card\CardGraphic" class="App\Card\CardGraphic" autowire="true" autoconfigure="true"/>
     <service id="App\Card\CardHand" class="App\Card\CardHand" autowire="true" autoconfigure="true">
@@ -349,6 +350,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\ApiController"/>
+      </call>
+    </service>
+    <service id="App\Controller\BlackJackController" class="App\Controller\BlackJackController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\BlackJackController"/>
       </call>
     </service>
     <service id="App\Controller\CardsController" class="App\Controller\CardsController" public="true" autowire="true" autoconfigure="true">
@@ -6016,6 +6024,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BlackJackController" class="App\Controller\BlackJackController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BlackJackController" class="App\Controller\BlackJackController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\BlackJackController" class="App\Controller\BlackJackController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CardsController" class="App\Controller\CardsController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CardsController" class="App\Controller\CardsController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CardsController" class="App\Controller\CardsController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6938,6 +6949,12 @@
     <service id=".service_locator.jIxfAsi.App\Controller\ApiController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ApiController"/>
       <argument>App\Controller\ApiController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\BlackJackController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\BlackJackController"/>
+      <argument>App\Controller\BlackJackController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>

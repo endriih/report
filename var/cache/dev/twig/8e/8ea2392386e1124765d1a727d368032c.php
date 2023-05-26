@@ -106,16 +106,20 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
         // line 30
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("library");
         echo "\">Library</a>
-                  <a href=\"";
+                <a href=\"";
         // line 31
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("metrics");
         echo "\">Metrics</a>
+                <a href=\"";
+        // line 32
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("proj_start");
+        echo "\">Proj</a>
             </div>
         </nav>
         ";
-        // line 34
-        $this->displayBlock('body', $context, $blocks);
         // line 35
+        $this->displayBlock('body', $context, $blocks);
+        // line 36
         echo "
         <footer><p>Denna sidan är Copyright © av mig.</p></footer>
     </body>
@@ -194,7 +198,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     }
 
-    // line 34
+    // line 35
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -224,7 +228,7 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
 
     public function getDebugInfo()
     {
-        return array (  198 => 34,  185 => 14,  175 => 13,  162 => 10,  152 => 9,  133 => 5,  119 => 35,  117 => 34,  111 => 31,  107 => 30,  103 => 29,  99 => 28,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  71 => 18,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
+        return array (  202 => 35,  189 => 14,  179 => 13,  166 => 10,  156 => 9,  137 => 5,  123 => 36,  121 => 35,  115 => 32,  111 => 31,  107 => 30,  103 => 29,  99 => 28,  95 => 27,  91 => 26,  87 => 25,  83 => 24,  79 => 23,  71 => 18,  67 => 16,  65 => 13,  62 => 12,  59 => 9,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -259,7 +263,8 @@ class __TwigTemplate_141f76152e244d508ab68bb244b927c3 extends Template
                 <a href=\"{{ path('card') }}\">Card</a>
                 <a href=\"{{ path('game') }}\">Game</a>
                 <a href=\"{{ path('library') }}\">Library</a>
-                  <a href=\"{{ path('metrics') }}\">Metrics</a>
+                <a href=\"{{ path('metrics') }}\">Metrics</a>
+                <a href=\"{{ path('proj_start') }}\">Proj</a>
             </div>
         </nav>
         {% block body %}{% endblock %}
