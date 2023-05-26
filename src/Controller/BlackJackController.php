@@ -27,14 +27,14 @@ class BlackJackController extends AbstractController
             $blackjackGame = new BlackJack(3);
             $session->set('blackjackgame', $blackjackGame);
         }
-
         $blackjackGame = $session->get('blackjackgame');
+        $totalBet = $blackjackGame->getTotalBet();
         $output = '';
         foreach ($blackjackGame->getPlayerHands() as $index => $hand) {
             $output .= "Hand " . ($index + 1) . ": " . implode(", ", $hand->getCardGraphics()) . "<br>";
         }
         
-        return new Response($output);
+        return new Response($totalBet);
     }
 
     #[Route('/proj/game/draw', name: 'proj_game_draw')]
@@ -42,6 +42,11 @@ class BlackJackController extends AbstractController
     {
         $blackjackGame = $session->get('blackjackgame');
         $blackjackGame->drawCard(0);
+        $blackjackGame->placeBet(0, 10);
+        $blackjackGame->placeBet(1, 20);
+        $blackjackGame->placeBet(2, 15);
+    
+        $totalBet = $blackjackGame->getTotalBet();
         return $this->redirectToRoute('proj_game');
     }
 }

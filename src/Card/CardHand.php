@@ -24,6 +24,7 @@ class CardHand
      * @var CardGraphic[]
      */
     private array $hand;
+    private int $bet;
 
     public function __construct(DeckOfCards $deck)
     {
@@ -31,6 +32,17 @@ class CardHand
         $this->cards = $deck->getCards();
         $this->initialCards = $this->cards;
         $this->hand = [];
+        $this->bet = 0;
+    }
+
+    public function setBet(int $amount): void
+    {
+        $this->bet = $amount;
+    }
+
+    public function getBet(): int
+    {
+        return $this->bet;
     }
 
     /**

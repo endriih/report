@@ -10,23 +10,17 @@ class BlackJack
 {
     private $playerHands;
     private $bankHand;
-    private int $totalBet;
+    private int $totalBet = 0;
 
     public function __construct($numHands)
     {
         $this->playerHands = [];
-        $this->totalBet = 0;
 
         $deck = new DeckOfCards();
 
         for ($i = 0; $i < $numHands; $i++) {
             $this->playerHands[] = new CardHand($deck);
         }
-    }
-
-    public function getTotalBet(): int
-    {
-        return $this->totalBet;
     }
 
     public function placeBet(int $handIndex, int $amount): void
@@ -38,6 +32,11 @@ class BlackJack
         $hand = $this->playerHands[$handIndex];
         $hand->setBet($amount);
         $this->totalBet += $amount;
+    }
+
+    public function getTotalBet(): int
+    {
+        return $this->totalBet;
     }
 
     public function drawCard($handIndex)
